@@ -12,6 +12,7 @@ public class Item : MonoBehaviour
 
     public int price = 1; //price (and increment?) should increase per purchase.
     public int increment = 1;
+    public int quantity;
 
     public Item(int itemID, string itemTitle, int itemPrice, int itemIncrement)
     {
@@ -27,6 +28,7 @@ public class Item : MonoBehaviour
         {
             Main.removeGold(price);
             Main.addIncrement(increment);
+            quantity++;
         }
         else
         { /* do something */
