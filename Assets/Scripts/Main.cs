@@ -13,10 +13,15 @@ public class Main : MonoBehaviour
     static int autoIncrement = 0;
 
     //clicking
-
     public void playerManualClick()
     {
         addGold(clickIncrement);
+    }
+
+    //auto clicking
+    void autoClick()
+    {
+        addGold(autoIncrement);
     }
 
     //auto increment
@@ -51,7 +56,8 @@ public class Main : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //call autoclick every second
+        InvokeRepeating("autoClick", 1f, 1f);
     }
 
     // Update is called once per frame
@@ -61,7 +67,5 @@ public class Main : MonoBehaviour
         goldDisplay.GetComponent<Text>().text = "Gold " + getGold();
         incrementDisplay.GetComponent<Text>().text = "Increment " + getIncrement();
 
-        //adds gold every frame. bad implementation! tie increment to actual seconds instead.
-        //addGold(autoIncrement);
     }
 }
