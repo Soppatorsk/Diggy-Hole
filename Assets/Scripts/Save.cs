@@ -1,27 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Save : MonoBehaviour
 {
-    public int gold = Main.getGold();
-    public int increment = Main.getIncrement();
-    //item array
-    public string time = System.DateTime.Now.ToLongDateString();
+    int gold = Main.getGold();
+    int increment = Main.getIncrement();
+    //todo item array
+    static System.DateTime saveDate = System.DateTime.Now;
 
-
-    void SaveGame()
+    public void SaveGame()
     {
         PlayerPrefs.SetInt("Player total gold", gold);
         PlayerPrefs.SetInt("Player gold per second", increment);
-        //# of each item, item array
-
-        PlayerPrefs.SetString("Save Date", time);
-
-        //options
-
+        //todo # of each item, item array
+        //todo savedate
+        //PlayerPrefs.SetString("Save Date", saveDate.ToString());
+        //todo options
         PlayerPrefs.Save();
-
     }
 
     void LoadGame()
@@ -31,12 +28,19 @@ public class Save : MonoBehaviour
             //todo, implement saving first
         } else
         {
-            //error
+            //todo return error
         }
     }
 
     void ResetGame()
     {
         PlayerPrefs.DeleteAll();
+    }
+
+    // GETTERS AND SETTERS
+    public static System.DateTime getSaveDate()
+    {
+        System.DateTime r = saveDate;
+        return r;
     }
 }

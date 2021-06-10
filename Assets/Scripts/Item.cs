@@ -10,10 +10,11 @@ public class Item : MonoBehaviour
     //public string description = "item_description";
     //icon img
 
-    public int price = 1; //price (and increment?) should increase per purchase.
+    public int price = 1; //price (and increment?) should increase per purchase exponentially. 
     public int increment = 1;
     public int quantity;
 
+    //constructor
     public Item(int itemID, string itemTitle, int itemPrice, int itemIncrement)
     {
         id = itemID;
@@ -34,16 +35,4 @@ public class Item : MonoBehaviour
         { /* do something */
         }
     }   
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
