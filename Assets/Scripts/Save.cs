@@ -1,46 +1,80 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Save : MonoBehaviour
 {
-    int gold = Main.getGold();
-    int increment = Main.getIncrement();
-    //todo item array
-    static System.DateTime saveDate = System.DateTime.Now;
+    public static DateTime lastSave;
+
+    [Serializable]
+    class SaveData
+    {
+        public int gold;
+        public int increment;
+        public DateTime saveDate;
+    }
 
     public void SaveGame()
     {
-        PlayerPrefs.SetInt("Player total gold", gold);
-        PlayerPrefs.SetInt("Player gold per second", increment);
-        //todo # of each item, item array
-        //todo savedate
-        //PlayerPrefs.SetString("Save Date", saveDate.ToString());
-        //todo options
-        PlayerPrefs.Save();
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Create(Application.persistentDataPath + "/MySaveData.dat");
+        SaveData data = new SaveData();
+        //
+        data.gold = Main.getGold();
+        data.increment = Main.getIncrement();
+        data.saveDate = DateTime.Now;
+        lastSave = DateTime.Now;
+
+        //
+        bf.Serialize(file, data);
+        file.Close();
+        Debug.Log("Game data saved!");
     }
 
-    void LoadGame()
+    public void LoadGame()
     {
-        if (PlayerPrefs.HasKey("Save Date"))
+        if (File.Exists(Application.persistentDataPath
+                       + "/MySaveData.dat"))
         {
-            //todo, implement saving first
-        } else
-        {
-            //todo return error
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file =
+                       File.Open(Application.persistentDataPath
+                       + "/MySaveData.dat", FileMode.Open);
+            SaveData data = (SaveData)bf.Deserialize(file);
+            file.Close();
+            //
+            Main.setGold(data.gold);
+            Main.setIncrement(data.increment);
+            lastSave = data.saveDate;
+            //
+            Debug.Log("Game data loaded!");
         }
+        else
+            Debug.LogError("There is no save data!");
     }
 
-    void ResetGame()
+    public void ResetGame()
     {
-        PlayerPrefs.DeleteAll();
+        if (File.Exists(Application.persistentDataPath
+                  + "/MySaveData.dat"))
+        {
+            File.Delete(Application.persistentDataPath
+                              + "/MySaveData.dat");
+            Main.setGold(0);
+            Main.setIncrement(0);
+            Debug.Log("Data reset complete!");
+        }
+        else
+            Debug.LogError("No save data to delete.");
     }
 
-    // GETTERS AND SETTERS
-    public static System.DateTime getSaveDate()
+    public static DateTime getLastSave()
     {
-        System.DateTime r = saveDate;
-        return r;
+        DateTime d = lastSave;
+        return d;
     }
 }

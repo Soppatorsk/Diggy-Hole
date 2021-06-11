@@ -10,13 +10,13 @@ public class Main : MonoBehaviour
     public GameObject incrementDisplay;
 
     static int gold = 0;
-    static int clickIncrement = 1;
-    static int autoIncrement = 1; //testing, back to 0
-    //inventory array for quantity of items, 3 pickaxes, 1 poato etc. 
+    static int clickIncrement = 1; 
+    static int autoIncrement = 0; //referred to simply as "increment" everywhere else, may be confused with per click increment
+    //TODO inventory array for quantity of items, 3 pickaxes, 1 poato etc. 
 
     static double AFKMultiplier = 0.2;
 
-    //clicking
+    //manual clicking
     public void playerManualClick()
     {
         addGold(clickIncrement);
@@ -30,34 +30,34 @@ public class Main : MonoBehaviour
 
     public static void afkReward()
     {
-        // get time of last save
-        //System.DateTime lastSave = Save.getSaveDate();
-        System.DateTime lastSave = new System.DateTime(2021, 06, 10); //test time, save/load game not yet implemented
-        // get current 
-        System.DateTime currentTime = System.DateTime.Now;
-        // differnce in seconds
-        System.TimeSpan diff = currentTime.Subtract(lastSave);
+        //get time diff
+        DateTime lastSave = Save.getLastSave();
+        DateTime currentTime = DateTime.Now;
+        TimeSpan diff = currentTime.Subtract(lastSave);
         double diffSeconds = diff.TotalSeconds;
-        // calculate reward, apply multiplier
+
+        //calculate reward
         double gReward = (diffSeconds * getIncrement() * getAFKMultiplier());
-        // TODO display amount of reward to player
+
+        //reward gold
         addGold((int)gReward);
+        Debug.Log("Player rewarded " + (int)gReward + "gold!");
         }
 
     // Start is called before the first frame update
     void Start()
     {
-        //TODO load game, if any
-        //call autoclick every second
+        Save newGame = new Save();
+        newGame.LoadGame();
         afkReward();
-        InvokeRepeating("autoClick", 1f, 1f);
-        //InvokeRepeating, Save game every x seconds
+        InvokeRepeating("autoClick", 1f, 1f); //call autoclick every second
+        InvokeRepeating("newGame.SaveGame()", 60f, 60f); // auto-save game every 60 seconds
     }
 
     // Update is called once per frame
     void Update()
     {
-        //UI displays
+        //UI displays. move to other script file eventually(?)
         goldDisplay.GetComponent<Text>().text = "Gold " + getGold();
         incrementDisplay.GetComponent<Text>().text = "Increment " + getIncrement();
     }
@@ -76,6 +76,11 @@ public class Main : MonoBehaviour
         autoIncrement += i;
     }
 
+    public static void setIncrement(int i)
+    {
+        autoIncrement = i;
+    }
+
     //gold
     public static int getGold()
     {
@@ -91,6 +96,11 @@ public class Main : MonoBehaviour
     public static void removeGold(int i)
     {
         gold -= i;
+    }
+
+    public static void setGold(int i)
+    {
+        gold = i;
     }
 
     //afk
