@@ -7,25 +7,26 @@ using UnityEngine.UI;
 public class Main : MonoBehaviour
 {
     public GameObject goldDisplay;
-    public GameObject incrementDisplay;
+    public GameObject autoIncDisplay;
 
     static int gold = 0;
-    static int clickIncrement = 1; 
-    static int autoIncrement = 0; //referred to simply as "increment" everywhere else, may be confused with per click increment
-    //TODO inventory array for quantity of items, 3 pickaxes, 1 poato etc. 
+    static int clickInc = 1;
+    static int autoInc = 0;
+
+    static int[] inventory = new int[99]; 
 
     static double AFKMultiplier = 0.2;
 
     //manual clicking
     public void playerManualClick()
     {
-        addGold(clickIncrement);
+        addGold(clickInc);
     }
 
     //auto clicking
     void autoClick()
     {
-        addGold(autoIncrement);
+        addGold(autoInc);
     }
 
     public static void afkReward()
@@ -37,11 +38,11 @@ public class Main : MonoBehaviour
         double diffSeconds = diff.TotalSeconds;
 
         //calculate reward
-        double gReward = (diffSeconds * getIncrement() * getAFKMultiplier());
+        double gReward = (diffSeconds * getAutoInc() * getAFKMultiplier());
 
         //reward gold
         addGold((int)gReward);
-        Debug.Log("Player rewarded " + (int)gReward + "gold!");
+        Debug.Log("Player rewarded " + (int)gReward + " gold!");
         }
 
     // Start is called before the first frame update
@@ -59,26 +60,26 @@ public class Main : MonoBehaviour
     {
         //UI displays. move to other script file eventually(?)
         goldDisplay.GetComponent<Text>().text = "Gold " + getGold();
-        incrementDisplay.GetComponent<Text>().text = "Increment " + getIncrement();
+        autoIncDisplay.GetComponent<Text>().text = "Increment " + getAutoInc();
     }
 
     //GETTERS AND SETTERS
 
-    //auto increment
-    public static int getIncrement()
+    //auto autoInc
+    public static int getAutoInc()
     {
-        int i = autoIncrement;
+        int i = autoInc;
         return i;
     }
 
-    public static void addIncrement(int i)
+    public static void addAutoInc(int i)
     {
-        autoIncrement += i;
+        autoInc += i;
     }
 
-    public static void setIncrement(int i)
+    public static void setAutoInc(int i)
     {
-        autoIncrement = i;
+        autoInc = i;
     }
 
     //gold
@@ -101,6 +102,29 @@ public class Main : MonoBehaviour
     public static void setGold(int i)
     {
         gold = i;
+    }
+
+    //inventory, get specific item quantity
+    public static int getInventory(int i)
+    {
+        return inventory[i];
+    }
+
+    public static void addInventory(int i)
+    {
+        inventory[i]++;
+    }
+
+    public static int[] getFullInventory()
+    {
+        int[] i = new int[99];
+        inventory = i;
+        return i;
+    }
+
+    public static void setFullInventory(int[] i)
+    {
+        inventory = i;
     }
 
     //afk

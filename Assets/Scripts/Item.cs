@@ -10,9 +10,10 @@ public class Item : MonoBehaviour
     //public string description = "item_description";
     //icon img
 
-    public int price = 1; //price (and increment?) should increase per purchase exponentially. 
+    public int price = 1; 
     public int increment = 1;
-    public int quantity;
+    public int owned;
+    //TODO price increase with each purchase with some f(x) soemthing where x is getInventory(id)
 
     //constructor
     public Item(int itemID, string itemTitle, int itemPrice, int itemIncrement)
@@ -28,11 +29,12 @@ public class Item : MonoBehaviour
         if (Main.getGold() >= price)
         {
             Main.removeGold(price);
-            Main.addIncrement(increment);
-            quantity++;
+            Main.addAutoInc(increment);
+            Main.addInventory(id);
         }
         else
         { /* do something */
+            Debug.Log("Not enough gold");
         }
     }   
 }

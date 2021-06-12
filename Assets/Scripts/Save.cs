@@ -14,7 +14,8 @@ public class Save : MonoBehaviour
     class SaveData
     {
         public int gold;
-        public int increment;
+        public int autoInc;
+        public int[] inventory;
         public DateTime saveDate;
     }
 
@@ -25,9 +26,10 @@ public class Save : MonoBehaviour
         SaveData data = new SaveData();
         //
         data.gold = Main.getGold();
-        data.increment = Main.getIncrement();
+        data.autoInc = Main.getAutoInc();
         data.saveDate = DateTime.Now;
-        lastSave = DateTime.Now;
+        data.inventory = Main.getFullInventory(); //needs test
+        lastSave = data.saveDate; //unneccesary?
 
         //
         bf.Serialize(file, data);
@@ -48,8 +50,9 @@ public class Save : MonoBehaviour
             file.Close();
             //
             Main.setGold(data.gold);
-            Main.setIncrement(data.increment);
-            lastSave = data.saveDate;
+            Main.setAutoInc(data.autoInc);
+            Main.setFullInventory(data.inventory); //needs test
+            lastSave = data.saveDate; 
             //
             Debug.Log("Game data loaded!");
         }
@@ -65,7 +68,8 @@ public class Save : MonoBehaviour
             File.Delete(Application.persistentDataPath
                               + "/MySaveData.dat");
             Main.setGold(0);
-            Main.setIncrement(0);
+            Main.setAutoInc(0);
+            Main.setFullInventory(null); //needs test
             Debug.Log("Data reset complete!");
         }
         else
