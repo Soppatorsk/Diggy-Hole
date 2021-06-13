@@ -1,40 +1,42 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Item : MonoBehaviour
 {
-    public int id;
-    public string title = "item_Title";
-    //public string description = "item_description";
+    int id;
+    string title;
+    //public string description;
     //icon img
 
-    public int price = 1; 
-    public int increment = 1;
-    public int owned;
+    static int basePrice;
+    static int price_K = 10;
     //TODO price increase with each purchase with some f(x) soemthing where x is getInventory(id)
 
+    static int autoInc;
+
+    //public int level; //TODO(?) upgrade level
+
     //constructor
-    public Item(int itemID, string itemTitle, int itemPrice, int itemIncrement)
+    public Item(int itemID, string itemTitle, int itemBasePrice, int itemAutoInc)
     {
         id = itemID;
         title = itemTitle;
-        price = itemPrice;
-        increment = itemIncrement;
+        basePrice = itemBasePrice;
+        autoInc = itemAutoInc;
     }
 
-    public void purchase()
+    public int getPrice()
     {
-        if (Main.getGold() >= price)
-        {
-            Main.removeGold(price);
-            Main.addAutoInc(increment);
-            Main.addInventory(id);
-        }
-        else
-        { /* do something */
-            Debug.Log("Not enough gold");
-        }
-    }   
+        int price = price_K * Main.getInventory(id) + basePrice;
+        return price;
+    }
+
+    public int getAutoInc()
+    {
+        int i = autoInc;
+        return i;
+    }
 }

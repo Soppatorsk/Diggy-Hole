@@ -6,26 +6,25 @@ using UnityEngine.UI;
 public class Shop : MonoBehaviour
 {
     //displays
-    public GameObject shopTitle_1;
+    public GameObject debugText;
 
     //Item initiators
-    Item item_1 = new Item(1, "Pickaxe", 1, 1);
+    public static Item item_1 = new Item(0, "Pickaxe", 1, 1);
+    public static Item item_2 = new Item(1, "Potato", 2, 2);
+    public static Item[] items = new Item[2] { item_1, item_2 };
 
-    //shop buttons (do I really need one for each button?) can I not just call item.purchase?
-    public void shopPurchase_1()
+    public void purchase(int itemID)
     {
-        item_1.purchase();
+        int i = itemID;
+        int price = items[i].getPrice();
+        int increment = items[i].getAutoInc();
+        Main.removeGold(price);
+        Main.addAutoInc(increment);
+        Main.addInventory(i);
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        shopTitle_1.GetComponent<Text>().text = item_1.title;
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        debugText.GetComponent<Text>().text = "Item price: " + items[0].getPrice();
     }
 }

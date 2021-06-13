@@ -13,7 +13,13 @@ public class Main : MonoBehaviour
     static int clickInc = 1;
     static int autoInc = 0;
 
-    static int[] inventory = new int[99]; 
+    static int[] inventory = new int[99];
+    /*NOTE: inventory currently has no direct link to player increment. 
+    it is not calculated based on what items the player has.
+    rather it is added on every shop purchase and then autoInc is saved directly as an int in the save file.
+    thus no calculation needed.
+    TODO (probably). cant give player full item inventory[99,99,99,99] when debugging for example
+    */
 
     static double AFKMultiplier = 0.2;
 
@@ -48,11 +54,11 @@ public class Main : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Save newGame = new Save();
-        newGame.LoadGame();
-        afkReward();
+        //Save newGame = new Save();
+        //newGame.LoadGame();
+        //afkReward();
         InvokeRepeating("autoClick", 1f, 1f); //call autoclick every second
-        InvokeRepeating("newGame.SaveGame()", 60f, 60f); // auto-save game every 60 seconds
+        //InvokeRepeating("newGame.SaveGame()", 60f, 60f); // auto-save game every 60 seconds
     }
 
     // Update is called once per frame
@@ -65,7 +71,7 @@ public class Main : MonoBehaviour
 
     //GETTERS AND SETTERS
 
-    //auto autoInc
+    //Automatic increment
     public static int getAutoInc()
     {
         int i = autoInc;
@@ -96,7 +102,14 @@ public class Main : MonoBehaviour
 
     public static void removeGold(int i)
     {
-        gold -= i;
+        if (gold >= i)
+        {
+            gold -= i;
+        } else
+        {
+            Debug.Log("Not enough gold");
+        }
+        
     }
 
     public static void setGold(int i)
@@ -115,6 +128,7 @@ public class Main : MonoBehaviour
         inventory[i]++;
     }
 
+    //entire inventory
     public static int[] getFullInventory()
     {
         int[] i = new int[99];
