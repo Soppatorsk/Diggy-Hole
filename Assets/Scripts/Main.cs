@@ -17,8 +17,9 @@ public class Main : MonoBehaviour
     /*NOTE: inventory currently has no direct link to player increment. 
     it is not calculated based on what items the player has.
     rather it is added on every shop purchase and then autoInc is saved directly as an int in the save file.
-    thus no calculation needed.
-    TODO (probably). cant give player full item inventory[99,99,99,99] when debugging for example
+    thus no calculation. but it works as of now
+    TODO make an updateStats() or something on game load, calculating increment by inventory
+    TODO replace with the items[] array with a quantity parameter in it.
     */
 
     static double AFKMultiplier = 0.2;
@@ -42,10 +43,8 @@ public class Main : MonoBehaviour
         DateTime currentTime = DateTime.Now;
         TimeSpan diff = currentTime.Subtract(lastSave);
         double diffSeconds = diff.TotalSeconds;
-
         //calculate reward
         double gReward = (diffSeconds * getAutoInc() * getAFKMultiplier());
-
         //reward gold
         addGold((int)gReward);
         Debug.Log("Player rewarded " + (int)gReward + " gold!");
@@ -70,12 +69,11 @@ public class Main : MonoBehaviour
     }
 
     //GETTERS AND SETTERS
-
+    //removed the return i; on the getters, prob no difference but noting
     //Automatic increment
     public static int getAutoInc()
     {
-        int i = autoInc;
-        return i;
+        return autoInc;
     }
 
     public static void addAutoInc(int i)
@@ -91,8 +89,7 @@ public class Main : MonoBehaviour
     //gold
     public static int getGold()
     {
-        int g = gold;
-        return g;
+        return gold;
     }
 
     public static void addGold(int i)
@@ -144,8 +141,7 @@ public class Main : MonoBehaviour
     //afk
     private static double getAFKMultiplier()
     {
-        double m = AFKMultiplier;
-        return m;
+        return AFKMultiplier;
     }
-
+    
 }

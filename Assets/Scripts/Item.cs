@@ -11,11 +11,11 @@ public class Item : MonoBehaviour
     //public string description;
     //icon img
 
-    static int basePrice;
-    static int price_K = 10;
+    int basePrice;
+    int price_K = 10;
     //TODO price increase with each purchase with some f(x) soemthing where x is getInventory(id)
 
-    static int autoInc;
+    int autoInc;
 
     //public int level; //TODO(?) upgrade level
 
@@ -28,15 +28,41 @@ public class Item : MonoBehaviour
         autoInc = itemAutoInc;
     }
 
+    public void purchase()
+    {
+        if (Main.getGold() >= getPrice())
+        {
+            string msg = "Bought " + getTitle() + " for " + getPrice() + " gold, adding " + getAutoInc() + " gold per second >>>";
+            Main.removeGold(getPrice());
+            Main.addAutoInc(getAutoInc());
+            Main.addInventory(getItemID()); //get?
+            Debug.Log(msg);
+        } else
+        {
+            Debug.Log("Not enough gold");
+        }
+    }
+
+    //GETTERS AND SETTERS
+    private int getItemID()
+    {
+        return id;
+    }
+
     public int getPrice()
     {
-        int price = price_K * Main.getInventory(id) + basePrice;
-        return price;
+        return price_K * Main.getInventory(id) + basePrice;
+    }
+
+    internal string getTitle()
+    {
+        return title;
     }
 
     public int getAutoInc()
     {
-        int i = autoInc;
-        return i;
+        return autoInc;
     }
+
+   
 }
