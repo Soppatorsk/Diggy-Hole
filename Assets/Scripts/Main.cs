@@ -50,17 +50,15 @@ public class Main : MonoBehaviour
         Debug.Log("Player rewarded " + (int)gReward + " gold!");
         }
 
-    // Start is called before the first frame update
     void Start()
     {
-        //Save newGame = new Save();
-        //newGame.LoadGame();
-        //afkReward();
+        Save newGame = new Save();
+        newGame.LoadGame();
+        afkReward();
         InvokeRepeating("autoClick", 1f, 1f); //call autoclick every second
         //InvokeRepeating("newGame.SaveGame()", 60f, 60f); // auto-save game every 60 seconds
     }
 
-    // Update is called once per frame
     void Update()
     {
         //UI displays. move to other script file eventually(?)
@@ -69,7 +67,8 @@ public class Main : MonoBehaviour
     }
 
     //GETTERS AND SETTERS
-    //removed the return i; on the getters, prob no difference but noting
+    //removed the return i; on getters, prob no difference but noting
+
     //Automatic increment
     public static int getAutoInc()
     {
