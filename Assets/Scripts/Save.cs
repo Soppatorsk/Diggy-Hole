@@ -8,77 +8,56 @@ using UnityEngine.UI;
 
 public class Save : MonoBehaviour
 {
-    public static DateTime lastSave;
+    public DateTime lastSave;
 
-    [Serializable]
-    class SaveData
+    public static void WriteToFile<Player>(Player PlayerCopy, bool append = false)
     {
-        public int gold;
-        public int autoInc;
-        public int[] inventory;
-        public DateTime saveDate;
-    }
-
-    public void SaveGame()
-    {
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath + "/MySaveData.dat");
-        SaveData data = new SaveData();
-        //
-        data.gold = Main.getGold();
-        data.autoInc = Main.getAutoInc();
-        data.saveDate = DateTime.Now;
-        data.inventory = Main.getFullInventory(); //needs test
-        lastSave = data.saveDate; //unneccesary?
-
-        //
-        bf.Serialize(file, data);
-        file.Close();
-        Debug.Log("Game data saved!");
-    }
-
-    public void LoadGame()
-    {
-        if (File.Exists(Application.persistentDataPath
-                       + "/MySaveData.dat"))
+        using (Stream stream = File.Open(Application.persistentDataPath
+                       + "/MyDwarf.dat", append ? FileMode.Append : FileMode.Create))
         {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file =
-                       File.Open(Application.persistentDataPath
-                       + "/MySaveData.dat", FileMode.Open);
-            SaveData data = (SaveData)bf.Deserialize(file);
-            file.Close();
-            //
-            Main.setGold(data.gold);
-            Main.setAutoInc(data.autoInc);
-            Main.setFullInventory(data.inventory); //needs test
-            lastSave = data.saveDate; 
-            //
-            Debug.Log("Game data loaded!");
+            var binaryFormatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+            binaryFormatter.Serialize(stream, PlayerCopy);
         }
-        else
-            Debug.LogError("There is no save data!");
+       
+    }
+
+    public static Player ReadFromFile<Player>()
+    {
+        using (Stream stream = File.Open(Application.persistentDataPath
+                       + "/MyDwarf.dat", FileMode.Open))
+        {
+            var binaryFormatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+            return (Player)binaryFormatter.Deserialize(stream);
+        }
+    }
+
+    public static void SaveGame(Player playerdata)
+    {
+        WriteToFile(playerdata);
+    }
+
+    public static Player LoadGame()
+    {
+        return ReadFromFile<Player>();
     }
 
     public void ResetGame()
     {
         if (File.Exists(Application.persistentDataPath
-                  + "/MySaveData.dat"))
+                  + "/MyDwarf.dat"))
         {
             File.Delete(Application.persistentDataPath
-                              + "/MySaveData.dat");
-            Main.setGold(0);
-            Main.setAutoInc(0);
-            Main.setFullInventory(null); //needs test
+                              + "/MyDwarf.dat");
             Debug.Log("Data reset complete!");
         }
         else
             Debug.LogError("No save data to delete.");
     }
 
-    public static DateTime getLastSave()
+    public DateTime getLastSave()
     {
         DateTime d = lastSave;
         return d;
     }
+
 }

@@ -9,19 +9,24 @@ public class Shop : MonoBehaviour
     public GameObject priceDisplay_1;
 
     //Item initiators
-    public static Item item_1 = new Item(0, "Pickaxe", 1, 1);
-    public static Item item_2 = new Item(1, "Potato", 25, 2);
-    public static Item item_3 = new Item(2, "Iron armor", 100, 3);
-    public static Item[] items = new Item[3] { item_1, item_2, item_3};
-
+    static Item item_1 = new Item(0, "Pickaxe", 1, 1);
+    static Item item_2 = new Item(1, "Potato", 25, 2);
+    static Item item_3 = new Item(2, "Iron armor", 100, 3);
+    static Item[] items = new Item[3] { item_1, item_2, item_3}; //for loop to auto generate array?
 
     public void purchase(int i)
     {
         items[i].purchase();
+        priceDisplay_1.GetComponent<Text>().text = items[0].getPrice().ToString();
     }
 
-    void Update()
+    public void updateDisplays()
     {
-        priceDisplay_1.GetComponent<Text>().text = items[0].getPrice().ToString(); //TODO only update on purchase
+        priceDisplay_1.GetComponent<Text>().text = items[0].getPrice().ToString();
+    }
+
+    void Start()
+    {
+        updateDisplays();
     }
 }

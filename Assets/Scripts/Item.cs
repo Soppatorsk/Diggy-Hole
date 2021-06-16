@@ -12,14 +12,13 @@ public class Item : MonoBehaviour
     //icon img
 
     int basePrice;
-    int price_K = 10;
-    //TODO price increase with each purchase with some f(x) soemthing where x is getInventory(id)
+    int price_K = 10; //TODO set on init
 
     int autoInc;
 
     //public int level; //TODO(?) upgrade level
 
-    //constructor
+    // CONSTRUCTOR
     public Item(int itemID, string itemTitle, int itemBasePrice, int itemAutoInc)
     {
         id = itemID;
@@ -35,15 +34,17 @@ public class Item : MonoBehaviour
             string msg = "Bought " + getTitle() + " for " + getPrice() + " gold, adding " + getAutoInc() + " gold per second >>>";
             Main.removeGold(getPrice());
             Main.addAutoInc(getAutoInc());
-            Main.addInventory(getItemID()); //get?
+            Main.addInventory(getItemID());
+            Debug.Log("You have " + Main.getInventory(getItemID()) + " " + getTitle());
             Debug.Log(msg);
+
         } else
         {
             Debug.Log("Not enough gold");
         }
     }
 
-    //GETTERS AND SETTERS
+    // GETTERS AND SETTERS
     private int getItemID()
     {
         return id;

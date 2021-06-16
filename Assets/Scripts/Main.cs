@@ -8,53 +8,17 @@ public class Main : MonoBehaviour
 {
     public GameObject goldDisplay;
     public GameObject autoIncDisplay;
+    public Shop newShop = new Shop();
 
-    static int gold = 0;
-    static int clickInc = 1;
-    static int autoInc = 0;
+    static Player Player1 = new Player();
 
-    static int[] inventory = new int[99];
-    /*NOTE: inventory currently has no direct link to player increment. 
-    it is not calculated based on what items the player has.
-    rather it is added on every shop purchase and then autoInc is saved directly as an int in the save file.
-    thus no calculation. but it works as of now
-    TODO make an updateStats() or something on game load, calculating increment by inventory
-    TODO replace with the items[] array with a quantity parameter in it.
-    */
-
-    static double AFKMultiplier = 0.2;
-
-    //manual clicking
-    public void playerManualClick()
-    {
-        addGold(clickInc);
-    }
-
-    //auto clicking
-    void autoClick()
-    {
-        addGold(autoInc);
-    }
-
-    public static void afkReward()
-    {
-        //get time diff
-        DateTime lastSave = Save.getLastSave();
-        DateTime currentTime = DateTime.Now;
-        TimeSpan diff = currentTime.Subtract(lastSave);
-        double diffSeconds = diff.TotalSeconds;
-        //calculate reward
-        double gReward = (diffSeconds * getAutoInc() * getAFKMultiplier());
-        //reward gold
-        addGold((int)gReward);
-        Debug.Log("Player rewarded " + (int)gReward + " gold!");
-        }
+    double AFKMultiplier = 0.2;
 
     void Start()
     {
-        Save newGame = new Save();
-        newGame.LoadGame();
-        afkReward();
+        //Save newGame = new Save();
+        //newGame.LoadGame();
+        //afkReward();
         InvokeRepeating("autoClick", 1f, 1f); //call autoclick every second
         //InvokeRepeating("newGame.SaveGame()", 60f, 60f); // auto-save game every 60 seconds
     }
@@ -66,81 +30,137 @@ public class Main : MonoBehaviour
         autoIncDisplay.GetComponent<Text>().text = "Increment " + getAutoInc();
     }
 
-    //GETTERS AND SETTERS
-    //removed the return i; on getters, prob no difference but noting
+ 
+
+    /*
+    public void afkReward()
+    {
+        //get time diff
+        DateTime lastSave = Save.getLastSave();
+        DateTime currentTime = DateTime.Now;
+        TimeSpan diff = currentTime.Subtract(lastSave);
+        double diffSeconds = diff.TotalSeconds;
+        //calculate reward
+        double gReward = (diffSeconds * getAutoInc() * getAFKMultiplier());
+        //reward gold
+        addGold((int)gReward);
+        Debug.Log("Player rewarded " + (int)gReward + " gold!");
+    }
+    */
+
+    //manual clicking
+    public void ManualClick()
+    {
+        addGold(Player1.clickInc);
+    }
+
+    //auto clicking
+    void autoClick()
+    {
+        addGold(Player1.autoInc);
+    }
+
+    // GETTERS AND SETTERS
+    //afk
+    private double getAFKMultiplier()
+    {
+        return AFKMultiplier;
+    }
+
+    public void saveGameButton()
+    {
+        Save.SaveGame(Player1);
+        Debug.Log("Save the game");
+    }
+
+    public void loadGameButton()
+    {
+        Player1 = Save.LoadGame();
+        Debug.Log("Loaded the game");
+        newShop.updateDisplays();
+    }
+
+    // GETTERS AND SETTERS
 
     //Automatic increment
     public static int getAutoInc()
     {
-        return autoInc;
+        return Player1.autoInc;
     }
 
     public static void addAutoInc(int i)
     {
-        autoInc += i;
+        Player1.autoInc += i;
     }
 
-    public static void setAutoInc(int i)
+    public void setAutoInc(int i)
     {
-        autoInc = i;
+        Player1.autoInc = i;
     }
 
-    //gold
+    //Gold
     public static int getGold()
     {
-        return gold;
+        return Player1.gold;
     }
 
-    public static void addGold(int i)
+    public void addGold(int i)
     {
-        gold += i;
+        Player1.gold += i;
     }
 
     public static void removeGold(int i)
     {
-        if (gold >= i)
+        if (Player1.gold >= i)
         {
-            gold -= i;
-        } else
+            Player1.gold -= i;
+        }
+        else
         {
             Debug.Log("Not enough gold");
         }
-        
+
     }
 
-    public static void setGold(int i)
+    public void setGold(int i)
     {
-        gold = i;
+        Player1.gold = i;
     }
 
-    //inventory, get specific item quantity
+    //Inventory item quantity //TODO a rename?
     public static int getInventory(int i)
     {
-        return inventory[i];
+        return Player1.inventory[i];
     }
 
     public static void addInventory(int i)
     {
-        inventory[i]++;
+        Player1.inventory[i]++;
     }
 
-    //entire inventory
+    //Inventory
     public static int[] getFullInventory()
     {
         int[] i = new int[99];
-        inventory = i;
+        Player1.inventory = i;
         return i;
     }
 
-    public static void setFullInventory(int[] i)
+    public void setFullInventory(int[] i)
     {
-        inventory = i;
+        Player1.inventory = i;
     }
 
-    //afk
-    private static double getAFKMultiplier()
+    //Player, full stats. used in save file.
+
+    internal static Player GetPlayer()
     {
-        return AFKMultiplier;
+        return Player1;
     }
-    
+
+    public static void setPlayer(Player clone)
+    {
+        Player1 = clone;
+    }
+
 }
