@@ -18,7 +18,6 @@ public class Save : MonoBehaviour
             var binaryFormatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
             binaryFormatter.Serialize(stream, PlayerCopy);
         }
-       
     }
 
     public static Player ReadFromFile<Player>()
@@ -59,5 +58,4 @@ public class Save : MonoBehaviour
         DateTime d = lastSave;
         return d;
     }
-
 }

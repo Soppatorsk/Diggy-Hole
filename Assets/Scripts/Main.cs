@@ -30,8 +30,6 @@ public class Main : MonoBehaviour
         autoIncDisplay.GetComponent<Text>().text = "Increment " + getAutoInc();
     }
 
- 
-
     /*
     public void afkReward()
     {

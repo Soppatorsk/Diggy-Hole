@@ -8,10 +8,10 @@ public class Shop : MonoBehaviour
     //displays
     public GameObject priceDisplay_1;
 
-    //Item initiators
-    static Item item_1 = new Item(0, "Pickaxe", 1, 1);
-    static Item item_2 = new Item(1, "Potato", 25, 2);
-    static Item item_3 = new Item(2, "Iron armor", 100, 3);
+    //Item initiators //TODO game balancing with prices and increments
+    static Item item_1 = new Item(0, "Pickaxe", 10, 1.1, 1);
+    static Item item_2 = new Item(1, "Potato", 25, 1.1, 2);
+    static Item item_3 = new Item(2, "Iron armor", 50, 1.1, 3);
     static Item[] items = new Item[3] { item_1, item_2, item_3}; //for loop to auto generate array?
 
     public void purchase(int i)

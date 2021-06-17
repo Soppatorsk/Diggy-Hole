@@ -13,10 +13,7 @@ public class Player : ISerializable
 
     public int[] inventory = new int[5];
 
-    public Player()
-    {
-
-    }
+    public Player() { }
 
     public void GetObjectData(SerializationInfo info, StreamingContext context)
     {
