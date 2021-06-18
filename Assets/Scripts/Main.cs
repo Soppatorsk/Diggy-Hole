@@ -6,22 +6,17 @@ using UnityEngine.UI;
 
 public class Main : MonoBehaviour
 {
-    // DISPLAYS
     public GameObject goldDisplay;
     public GameObject autoIncDisplay;
+    public Shop newShop = new Shop();
 
-    // OBJECTS
     static Player Player1 = new Player();
-
-    // AUDIO
-    
 
     double AFKMultiplier = 0.2;
 
     void Start()
     {
         //Save newGame = new Save();
-
         //newGame.LoadGame();
         //afkReward();
         InvokeRepeating("autoClick", 1f, 1f); //call autoclick every second
@@ -32,7 +27,7 @@ public class Main : MonoBehaviour
     {
         //UI displays. move to other script file eventually(?)
         goldDisplay.GetComponent<Text>().text = "Gold " + getGold();
-        autoIncDisplay.GetComponent<Text>().text = "Increment " + getAutoInc(); //update on purhcase not every frame
+        autoIncDisplay.GetComponent<Text>().text = "Increment " + getAutoInc();
     }
 
     /*
@@ -55,11 +50,10 @@ public class Main : MonoBehaviour
     public void ManualClick()
     {
         addGold(Player1.clickInc);
-        //Audio.manualClick();
     }
 
     //auto clicking
-    public void autoClick()
+    void autoClick()
     {
         addGold(Player1.autoInc);
     }
@@ -81,7 +75,7 @@ public class Main : MonoBehaviour
     {
         Player1 = Save.LoadGame();
         Debug.Log("Loaded the game");
-        Shop.updateDisplays();
+        newShop.updateDisplays();
     }
 
     // GETTERS AND SETTERS
@@ -108,7 +102,7 @@ public class Main : MonoBehaviour
         return Player1.gold;
     }
 
-    public static void addGold(int i)
+    public void addGold(int i)
     {
         Player1.gold += i;
     }
