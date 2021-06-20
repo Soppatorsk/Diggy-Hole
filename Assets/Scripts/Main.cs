@@ -9,16 +9,16 @@ public class Main : MonoBehaviour
     public GameObject goldDisplay;
     public GameObject autoIncDisplay;
     public Shop newShop = new Shop();
+    Save newGame = new Save();
 
     static Player Player1 = new Player();
 
     double AFKMultiplier = 0.2;
 
     void Start()
-    {
-        //Save newGame = new Save();
-        //newGame.LoadGame();
-        //afkReward();
+    {   
+        //loadGameButton();
+        afkReward();
         InvokeRepeating("autoClick", 1f, 1f); //call autoclick every second
         //InvokeRepeating("newGame.SaveGame()", 60f, 60f); // auto-save game every 60 seconds
     }
@@ -26,15 +26,15 @@ public class Main : MonoBehaviour
     void Update()
     {
         //UI displays. move to other script file eventually(?)
-        goldDisplay.GetComponent<Text>().text = "Gold " + getGold();
-        autoIncDisplay.GetComponent<Text>().text = "Increment " + getAutoInc();
+        goldDisplay.GetComponent<Text>().text = String.Format("{0:0000000000000000}", getGold());
+        autoIncDisplay.GetComponent<Text>().text = "Gold per second " + getAutoInc();
     }
 
-    /*
+    
     public void afkReward()
     {
         //get time diff
-        DateTime lastSave = Save.getLastSave();
+        DateTime lastSave = newGame.getLastSave();
         DateTime currentTime = DateTime.Now;
         TimeSpan diff = currentTime.Subtract(lastSave);
         double diffSeconds = diff.TotalSeconds;
@@ -44,10 +44,10 @@ public class Main : MonoBehaviour
         addGold((int)gReward);
         Debug.Log("Player rewarded " + (int)gReward + " gold!");
     }
-    */
+    
 
     //manual clicking
-    public void ManualClick()
+    public void manualClick()
     {
         addGold(Player1.clickInc);
     }
