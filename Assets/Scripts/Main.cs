@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Main : MonoBehaviour
 {
-    //test
+    //test2
     public GameObject goldDisplay;
     public GameObject autoIncDisplay;
     public Shop newShop = new Shop();
