@@ -10,6 +10,7 @@ public class Item : MonoBehaviour
     string title;
     //public string description;
     //icon img
+    //Test comment
 
     int basePrice;
     double price_K;

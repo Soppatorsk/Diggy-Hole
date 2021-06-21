@@ -27,7 +27,7 @@ public class Main : MonoBehaviour
     {
         //UI displays. move to other script file eventually(?)
         goldDisplay.GetComponent<Text>().text = String.Format("{0:0000000000000000}", getGold());
-        autoIncDisplay.GetComponent<Text>().text = "Gold per second " + getAutoInc(); //TODO handle int/double overflow
+        autoIncDisplay.GetComponent<Text>().text = "Gold/s " + getAutoInc(); //TODO handle int/double overflow
     }
     
     public void afkReward()
