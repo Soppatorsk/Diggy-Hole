@@ -21,7 +21,7 @@ public class Shop : MonoBehaviour
     //Item initiators //TODO game balancing with prices and increments
     static Item item_1 = new Item(0, "Pickaxe", 10, 1.1, 1);
     static Item item_2 = new Item(1, "Potato", 25, 1.1, 2);
-    static Item item_3 = new Item(2, "Iron armor", 50, 1.1, 3);
+    static Item item_3 = new Item(2, "Diamond Pickaxe", 50, 1.1, 999999);
     static Item[] items = new Item[3] { item_1, item_2, item_3}; //for loop to auto generate array?
 
     public void purchase(int i)

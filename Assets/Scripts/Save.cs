@@ -1,4 +1,12 @@
-﻿using System;
+﻿/*
+     * !!! 
+     * Changing this class will probably fuck up save files
+     * If necessary, make sure to have compability/convert old save files 
+     * It would suck if every player lost their save data just because we decided to make an 
+     * !!!
+*/
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -8,7 +16,6 @@ using UnityEngine.UI;
 
 public class Save : MonoBehaviour
 {
-    public DateTime lastSave;
 
     public static void WriteToFile<Player>(Player PlayerCopy, bool append = false)
     {
@@ -51,11 +58,5 @@ public class Save : MonoBehaviour
         }
         else
             Debug.LogError("No save data to delete.");
-    }
-
-    public DateTime getLastSave()
-    {
-        DateTime d = lastSave;
-        return d;
     }
 }

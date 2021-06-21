@@ -6,36 +6,34 @@ using UnityEngine.UI;
 
 public class Main : MonoBehaviour
 {
-    //test2
     public GameObject goldDisplay;
     public GameObject autoIncDisplay;
-    public Shop newShop = new Shop();
-    Save newGame = new Save();
 
     static Player Player1 = new Player();
 
+    int goldCountSpeed = 100; //pointless over 60 because of refresh rate?
     double AFKMultiplier = 0.2;
 
     void Start()
     {   
         //loadGameButton();
-        afkReward();
-        InvokeRepeating("autoClick", 1f, 1f); //call autoclick every second
-        //InvokeRepeating("newGame.SaveGame()", 60f, 60f); // auto-save game every 60 seconds
+        //afkReward();
+        InvokeRepeating("autoClick", .01f, .01f); //call autoclick every nth second, see goldCountSpeed
+        //InvokeRepeating("Save.SaveGame()", 60f, 60f); // auto-save game every 60 seconds
     }
 
     void Update()
     {
         //UI displays. move to other script file eventually(?)
         goldDisplay.GetComponent<Text>().text = String.Format("{0:0000000000000000}", getGold());
-        autoIncDisplay.GetComponent<Text>().text = "Gold per second " + getAutoInc();
+        autoIncDisplay.GetComponent<Text>().text = "Gold per second " + getAutoInc(); //TODO handle int/double overflow
     }
-
     
     public void afkReward()
     {
         //get time diff
-        DateTime lastSave = newGame.getLastSave();
+        DateTime lastSave = getLastSave();
+        Debug.Log(getLastSave().ToString());
         DateTime currentTime = DateTime.Now;
         TimeSpan diff = currentTime.Subtract(lastSave);
         double diffSeconds = diff.TotalSeconds;
@@ -46,7 +44,6 @@ public class Main : MonoBehaviour
         Debug.Log("Player rewarded " + (int)gReward + " gold!");
     }
     
-
     //manual clicking
     public void manualClick()
     {
@@ -56,7 +53,7 @@ public class Main : MonoBehaviour
     //auto clicking
     void autoClick()
     {
-        addGold(Player1.autoInc);
+        addGold(Player1.autoInc / goldCountSpeed); // 
     }
 
     // GETTERS AND SETTERS
@@ -76,39 +73,37 @@ public class Main : MonoBehaviour
     {
         Player1 = Save.LoadGame();
         Debug.Log("Loaded the game");
-        newShop.updateDisplays();
+        //Shop.updateDisplays(); //TODO Fix this nullexception
     }
 
-    // GETTERS AND SETTERS
-
     //Automatic increment
-    public static int getAutoInc()
+    public static double getAutoInc()
     {
         return Player1.autoInc;
     }
 
-    public static void addAutoInc(int i)
+    public static void addAutoInc(double i)
     {
         Player1.autoInc += i;
     }
 
-    public void setAutoInc(int i)
+    public void setAutoInc(double i)
     {
         Player1.autoInc = i;
     }
 
     //Gold
-    public static int getGold()
+    public static double getGold()
     {
         return Player1.gold;
     }
 
-    public void addGold(int i)
+    public void addGold(double i)
     {
         Player1.gold += i;
     }
 
-    public static void removeGold(int i)
+    public static void removeGold(double i)
     {
         if (Player1.gold >= i)
         {
@@ -121,7 +116,7 @@ public class Main : MonoBehaviour
 
     }
 
-    public void setGold(int i)
+    public void setGold(double i)
     {
         Player1.gold = i;
     }
@@ -162,4 +157,9 @@ public class Main : MonoBehaviour
         Player1 = clone;
     }
 
+    //Save date
+    public DateTime getLastSave()
+    {
+        return Player1.lastSave;
+    }
 }
