@@ -173,9 +173,11 @@ MonoBehaviour:
   titleDisplay_2: {fileID: 1730843207}
   priceDisplay_2: {fileID: 1475263109}
   autoIncDisplay_2: {fileID: 1952011868}
+  purchaseItemBtn_2: {fileID: 1296079172}
   titleDisplay_3: {fileID: 384077981}
   priceDisplay_3: {fileID: 664491999}
   autoIncDisplay_3: {fileID: 1387172087}
+  purchaseItemBtn_3: {fileID: 1699158682}
 --- !u!1 &37922269
 GameObject:
   m_ObjectHideFlags: 0
