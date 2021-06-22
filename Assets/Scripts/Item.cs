@@ -12,15 +12,15 @@ public class Item : MonoBehaviour
     //icon img
     //Test comment
 
-    int basePrice;
+    long basePrice;
     double price_K;
 
-    int autoInc;
+    long autoInc;
 
-    //public int level; //TODO(?) upgrade level
+    //public long level; //TODO(?) upgrade level
 
     // CONSTRUCTOR
-    public Item(int itemID, string itemTitle, int itemBasePrice, double itemPrice_k, int itemAutoInc)
+    public Item(int itemID, string itemTitle, long itemBasePrice, double itemPrice_k, long itemAutoInc)
     {
         id = itemID;
         title = itemTitle;
@@ -52,9 +52,9 @@ public class Item : MonoBehaviour
         return id;
     }
 
-    public int getPrice()
+    public long getPrice()
     {
-        return (int)(basePrice * Math.Pow(price_K, Main.getInventory(id)));
+        return (long)(basePrice * Math.Pow(price_K, Main.getInventory(id)));
         //f(x)=ab^x
     }
 
@@ -63,7 +63,7 @@ public class Item : MonoBehaviour
         return title;
     }
 
-    public int getAutoInc()
+    public long getAutoInc()
     {
         return autoInc;
     }

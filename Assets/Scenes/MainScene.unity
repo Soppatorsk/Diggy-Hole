@@ -169,6 +169,7 @@ MonoBehaviour:
   titleDisplay_1: {fileID: 314655147}
   priceDisplay_1: {fileID: 1709393055}
   autoIncDisplay_1: {fileID: 1657708751}
+  purchaseItemBtn_1: {fileID: 346065837}
   titleDisplay_2: {fileID: 1730843207}
   priceDisplay_2: {fileID: 1475263109}
   autoIncDisplay_2: {fileID: 1952011868}
@@ -427,8 +428,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 232.5095, y: -38}
-  m_SizeDelta: {x: 297.131, y: 42.194}
+  m_AnchoredPosition: {x: 190.54, y: -38}
+  m_SizeDelta: {x: 381.08, y: 42.194}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &84955186
 GameObject:
@@ -1069,7 +1070,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -3991,7 +3992,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 23.830383}
+  m_AnchoredPosition: {x: 0, y: 23.830444}
   m_SizeDelta: {x: -37.819, y: -83.0635}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1691167818

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Main : MonoBehaviour
 {
-    //test
+    //TODO display increment and item prices with exponents instead of whole numbers
     public GameObject goldDisplay;
     public GameObject autoIncDisplay;
 
@@ -27,7 +27,7 @@ public class Main : MonoBehaviour
     {
         //UI displays. move to other script file eventually(?)
         goldDisplay.GetComponent<Text>().text = String.Format("{0:0000000000000000}", getGold());
-        autoIncDisplay.GetComponent<Text>().text = "Gold/s " + getAutoInc(); //TODO handle int/double overflow
+        autoIncDisplay.GetComponent<Text>().text = "Gold/s " + (long)getAutoInc();
     }
     
     public void afkReward()
