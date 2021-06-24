@@ -59,10 +59,12 @@ public class Shop : MonoBehaviour
         initShop();   
     }
 
+    /*
     void Update()
     {
         purchaseItemBtn_1.interactable = Main.getGold() >= items[0].getPrice() ? true : false;
         purchaseItemBtn_2.interactable = Main.getGold() >= items[1].getPrice() ? true : false;
         purchaseItemBtn_3.interactable = Main.getGold() >= items[2].getPrice() ? true : false;
     }
+    */
 }
