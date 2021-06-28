@@ -37,11 +37,11 @@ public class Shop : MonoBehaviour
 
     public void updateDisplays() //TODO there has to be a way to iterate this. also, do I really need to make them an obejct each? very ugly.
     {
-        priceDisplay_1.GetComponent<Text>().text = items[0].getPrice().ToString();
+        priceDisplay_1.GetComponent<Text>().text = "€" + items[0].getPrice().ToString();
         priceDisplay_2.GetComponent<Text>().text = items[1].getPrice().ToString();
         priceDisplay_3.GetComponent<Text>().text = items[2].getPrice().ToString();
 
-        autoIncDisplay_1.GetComponent<Text>().text = "+" + items[0].getAutoInc().ToString();
+        autoIncDisplay_1.GetComponent<Text>().text = "+" + items[0].getAutoInc().ToString() + " gps";
         autoIncDisplay_2.GetComponent<Text>().text = "+" + items[1].getAutoInc().ToString();
         autoIncDisplay_3.GetComponent<Text>().text = "+" + items[2].getAutoInc().ToString();
     }
