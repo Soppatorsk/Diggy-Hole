@@ -8,6 +8,7 @@ public class ShopItem : MonoBehaviour
     public GameObject titleDisplay;
     public GameObject priceDisplay;
     public GameObject autoIncDisplay;
+    public GameObject rankDisplay;
     public Button purchaseItemBtn;
 
     public int id;
@@ -18,12 +19,12 @@ public class ShopItem : MonoBehaviour
         titleDisplay.GetComponent<Text>().text = Shop.getTitle(id).ToString();
         priceDisplay.GetComponent<Text>().text = "€" + Shop.getPrice(id).ToString();
         autoIncDisplay.GetComponent<Text>().text = "+" + Shop.getAutoInc(id).ToString() + " gps";
-        Debug.Log(Shop.getPrice(id).ToString());
+        rankDisplay.GetComponent<Text>().text = "Rank " + Main.getInventory(id);
     }
 
     // Update is called once per frame
     void Update()
     {
-        priceDisplay.GetComponent<Text>().text = "€" + Shop.getPrice(id).ToString(); //performance hit?
+        priceDisplay.GetComponent<Text>().text = "€" + Shop.getPrice(id).ToString(); // only need to call per purchase. but shit dont work so lol
     }
 }

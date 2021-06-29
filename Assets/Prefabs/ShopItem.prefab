@@ -722,5 +722,6 @@ MonoBehaviour:
   titleDisplay: {fileID: 8402466855619052102}
   priceDisplay: {fileID: 8402466855264503666}
   autoIncDisplay: {fileID: 8402466855350248226}
+  rankDisplay: {fileID: 8402466855391228931}
   purchaseItemBtn: {fileID: 8402466855520503872}
   id: 0
