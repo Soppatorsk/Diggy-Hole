@@ -17,7 +17,7 @@ public class Item : MonoBehaviour
 
     long autoInc;
 
-    //public long level; //TODO(?) upgrade level
+    int rank;
 
     // CONSTRUCTOR
     public Item(int itemID, string itemTitle, long itemBasePrice, double itemPrice_k, long itemAutoInc)
