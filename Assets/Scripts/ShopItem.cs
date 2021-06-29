@@ -17,7 +17,7 @@ public class ShopItem : MonoBehaviour
     void Start()
     {
         titleDisplay.GetComponent<Text>().text = Shop.getTitle(id).ToString();
-        priceDisplay.GetComponent<Text>().text = "€" + Shop.getPrice(id).ToString();
+        priceDisplay.GetComponent<Text>().text = "?" + Shop.getPrice(id).ToString();
         autoIncDisplay.GetComponent<Text>().text = "+" + Shop.getAutoInc(id).ToString() + " gps";
         rankDisplay.GetComponent<Text>().text = " ";
     }
@@ -25,7 +25,7 @@ public class ShopItem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        priceDisplay.GetComponent<Text>().text = "€" + Shop.getPrice(id).ToString(); // only need to call per purchase. but shit dont work so lol
-        rankDisplay.GetComponent<Text>().text = "Rank " + Main.getInventory(id);
+        priceDisplay.GetComponent<Text>().text = "?" + Shop.getPrice(id).ToString(); // only need to call per purchase. but shit dont work so lol
+        rankDisplay.GetComponent<Text>().text = "Rank: " + Main.getInventory(id);
     }
 }
