@@ -18,16 +18,12 @@ public class ShopItem : MonoBehaviour
         titleDisplay.GetComponent<Text>().text = Shop.getTitle(id).ToString();
         priceDisplay.GetComponent<Text>().text = "€" + Shop.getPrice(id).ToString();
         autoIncDisplay.GetComponent<Text>().text = "+" + Shop.getAutoInc(id).ToString() + " gps";
-    }
-
-    public void purchase()
-    {
-        Shop.purchase(id);
+        Debug.Log(Shop.getPrice(id).ToString());
     }
 
     // Update is called once per frame
     void Update()
     {
-      //  
+        priceDisplay.GetComponent<Text>().text = "€" + Shop.getPrice(id).ToString(); //performance hit?
     }
 }
