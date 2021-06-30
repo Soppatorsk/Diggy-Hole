@@ -10,16 +10,27 @@ public class Main : MonoBehaviour
     public GameObject goldDisplay;
     public GameObject autoIncDisplay;
 
+    public GameObject comboDisplay;
+    public GameObject comboBar;
+    public GameObject comboBox;
+
     static Player Player1 = new Player();
 
     int goldCountSpeed = 100; //pointless over 60 because of refresh rate?
     double AFKMultiplier = 0.2;
 
+    int comboMultiplier = 1; //TODO maybe combo in its own class
+    int comboCounter = 0;
+    int comboCounterLimit = 50;
+    int combo2xCutoff = 10;
+    int combo3xCutoff = 40;
+
     void Start()
-    {   
+    {
         //loadGameButton();
         //afkReward();
         InvokeRepeating("autoClick", .01f, .01f); //call autoclick every nth second, see goldCountSpeed
+        InvokeRepeating("comboTick", .5f, .5f);
         //InvokeRepeating("Save.SaveGame()", 60f, 60f); // auto-save game every 60 seconds
     }
 
@@ -28,8 +39,11 @@ public class Main : MonoBehaviour
         //UI displays. move to other script file eventually(?)
         goldDisplay.GetComponent<Text>().text = String.Format("{0:0000000000000000}", getGold());
         autoIncDisplay.GetComponent<Text>().text = "Gold/s " + (long)getAutoInc();
+        comboDisplay.GetComponent<Text>().text = "x" + getComboMultiplier().ToString();
+        Debug.Log(comboCounter + "," + comboMultiplier);
+        comboBar.transform.position = new Vector3(comboCounter*5-100, 1200, 0);
     }
-    
+
     public void afkReward()
     {
         //get time diff
@@ -44,11 +58,21 @@ public class Main : MonoBehaviour
         addGold((int)gReward);
         Debug.Log("Player rewarded " + (int)gReward + " gold!");
     }
-    
+
+    public void comboTick()
+    {
+        if (comboCounter > 0)
+        {
+            comboCounter--;
+            getComboMultiplier();
+        } 
+    }
+
     //manual clicking
     public void manualClick()
     {
-        addGold(Player1.clickInc);
+        addGold(Player1.clickInc * getComboMultiplier());
+        if (comboCounter < comboCounterLimit) { comboCounter++; }
     }
 
     //auto clicking
@@ -75,6 +99,21 @@ public class Main : MonoBehaviour
         Player1 = Save.LoadGame();
         Debug.Log("Loaded the game");
         //Shop.updateDisplays(); //TODO Fix this nullexception
+    }
+
+    public int getComboMultiplier()
+    {
+       int x = 1;
+        if (comboCounter >= combo2xCutoff)
+        {
+            x = 2;
+            if (comboCounter >= combo3xCutoff)
+            {
+                x = 3;
+            }
+        }
+        comboMultiplier = x;
+        return comboMultiplier;
     }
 
     //Automatic increment
