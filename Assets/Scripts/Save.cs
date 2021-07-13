@@ -2,7 +2,7 @@
      * !!! 
      * Changing this class will probably fuck up save files
      * If necessary, make sure to have compability/convert old save files 
-     * It would suck if every player lost their save data just because we decided to make an 
+     * It would suck if every player lost their save data just because we fucked with this
      * !!!
 */
 

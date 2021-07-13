@@ -18,7 +18,7 @@ public class ShopItem : MonoBehaviour
     {
         titleDisplay.GetComponent<Text>().text = Shop.getTitle(id).ToString();
         priceDisplay.GetComponent<Text>().text = Main.numberFormatter(Shop.getPrice(id));
-        autoIncDisplay.GetComponent<Text>().text = "+" + Shop.getAutoInc(id).ToString() + " gps";
+        autoIncDisplay.GetComponent<Text>().text = "+" + Main.numberFormatter(Shop.getAutoInc(id)) + " gps";
         rankDisplay.GetComponent<Text>().text = " ";
     }
 
@@ -40,5 +40,4 @@ public class ShopItem : MonoBehaviour
             purchaseItemBtn.gameObject.SetActive(false);
         }
     }
-
 }

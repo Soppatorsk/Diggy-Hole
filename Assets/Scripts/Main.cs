@@ -7,7 +7,7 @@ using System.Globalization;
 
 public class Main : MonoBehaviour
 {
-    //TODO display increment and item prices with exponents instead of whole numbers
+    //TODO save/load game fix
     public GameObject goldDisplay;
     public GameObject autoIncDisplay;
 
@@ -207,7 +207,7 @@ public class Main : MonoBehaviour
     }
 
     public static string numberFormatter(double n)
-    {
+    { //TODO replace E+04 etc with letters, d, c, k, m etc
         if (n >= 10000)
         {
            return n.ToString("G2", CultureInfo.InvariantCulture);
