@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Globalization;
 
 public class Main : MonoBehaviour
 {
@@ -38,11 +39,10 @@ public class Main : MonoBehaviour
     {
         //UI displays. move to other script file eventually(?)
         goldDisplay.GetComponent<Text>().text = String.Format("{0:00000000000000000000000}", getGold());
-        autoIncDisplay.GetComponent<Text>().text = "Gold/s " + Decimal.Parse(getAutoInc().ToString());
+        autoIncDisplay.GetComponent<Text>().text = "Gold/s " + numberFormatter(getAutoInc());
 
         comboDisplay.GetComponent<Text>().text = "x" + getComboMultiplier().ToString();
-        comboBar.transform.position = new Vector3(comboCounter*5-100, 1200, 0);
-
+        comboBar.transform.position = new Vector3(comboCounter * 5 - 100, 1200, 0);
         //Debug.Log(comboCounter + "," + comboMultiplier);
     }
 
@@ -67,7 +67,7 @@ public class Main : MonoBehaviour
         {
             comboCounter--;
             getComboMultiplier();
-        } 
+        }
     }
 
     //manual clicking
@@ -106,7 +106,7 @@ public class Main : MonoBehaviour
     //Combo
     public int getComboMultiplier()
     {
-       int x = 1;
+        int x = 1;
         if (comboCounter >= combo2xCutoff)
         {
             x = 2;
@@ -204,5 +204,16 @@ public class Main : MonoBehaviour
     public DateTime getLastSave()
     {
         return Player1.lastSave;
+    }
+
+    public static string numberFormatter(double n)
+    {
+        if (n >= 10000)
+        {
+           return n.ToString("G2", CultureInfo.InvariantCulture);
+        } else
+        {
+            return n.ToString();
+        }
     }
 }

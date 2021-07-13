@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class Shop : MonoBehaviour
 {
     //Item initiators //TODO game balancing with prices and increments
