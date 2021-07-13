@@ -27,5 +27,18 @@ public class ShopItem : MonoBehaviour
     {
         priceDisplay.GetComponent<Text>().text = "?" + Shop.getPrice(id).ToString(); // only need to call per purchase. but shit dont work so lol
         rankDisplay.GetComponent<Text>().text = "Rank: " + Main.getInventory(id);
+        ButtonToggle();
     }
+
+    void ButtonToggle()
+    {
+        if (Main.getGold() >= Shop.getPrice(id))
+        {
+            purchaseItemBtn.gameObject.SetActive(true);
+        } else
+        {
+            purchaseItemBtn.gameObject.SetActive(false);
+        }
+    }
+
 }

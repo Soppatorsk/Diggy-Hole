@@ -37,11 +37,13 @@ public class Main : MonoBehaviour
     void Update()
     {
         //UI displays. move to other script file eventually(?)
-        goldDisplay.GetComponent<Text>().text = String.Format("{0:0000000000000000}", getGold());
-        autoIncDisplay.GetComponent<Text>().text = "Gold/s " + (long)getAutoInc();
+        goldDisplay.GetComponent<Text>().text = String.Format("{0:00000000000000000000000}", getGold());
+        autoIncDisplay.GetComponent<Text>().text = "Gold/s " + Decimal.Parse(getAutoInc().ToString());
+
         comboDisplay.GetComponent<Text>().text = "x" + getComboMultiplier().ToString();
-        Debug.Log(comboCounter + "," + comboMultiplier);
         comboBar.transform.position = new Vector3(comboCounter*5-100, 1200, 0);
+
+        //Debug.Log(comboCounter + "," + comboMultiplier);
     }
 
     public void afkReward()
@@ -101,6 +103,7 @@ public class Main : MonoBehaviour
         //Shop.updateDisplays(); //TODO Fix this nullexception
     }
 
+    //Combo
     public int getComboMultiplier()
     {
        int x = 1;

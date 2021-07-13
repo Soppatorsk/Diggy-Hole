@@ -17,7 +17,7 @@ public class Item : MonoBehaviour
 
     long autoInc;
 
-    int rank;
+    int rank; //TODO
 
     // CONSTRUCTOR
     public Item(int itemID, string itemTitle, long itemBasePrice, double itemPrice_k, long itemAutoInc)
