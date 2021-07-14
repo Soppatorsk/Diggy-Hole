@@ -38,7 +38,7 @@ public class Main : MonoBehaviour
     void Update()
     {
         //UI displays. move to other script file eventually(?)
-        goldDisplay.GetComponent<Text>().text = String.Format("{0:00000000000000000000000}", getGold());
+        goldDisplay.GetComponent<Text>().text = String.Format("{0:0000000000000000000}", getGold());
         autoIncDisplay.GetComponent<Text>().text = "Gold/s " + numberFormatter(getAutoInc());
 
         comboDisplay.GetComponent<Text>().text = "x" + getComboMultiplier().ToString();
