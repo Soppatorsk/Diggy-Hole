@@ -34,10 +34,10 @@ public class ShopItem : MonoBehaviour
     {
         if (Main.getGold() >= Shop.getPrice(id))
         {
-            purchaseItemBtn.gameObject.SetActive(true);
+            purchaseItemBtn.interactable = true;
         } else
         {
-            purchaseItemBtn.gameObject.SetActive(false);
+            purchaseItemBtn.interactable = false;
         }
     }
 }
