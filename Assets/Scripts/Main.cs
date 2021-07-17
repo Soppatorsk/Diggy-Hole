@@ -17,6 +17,8 @@ public class Main : MonoBehaviour
 
     static Player Player1 = new Player();
 
+    Rock newRock = new Rock(1, 0);
+
     int goldCountSpeed = 100; //pointless over 60 because of refresh rate?
     double AFKMultiplier = 0.2;
 
@@ -30,6 +32,7 @@ public class Main : MonoBehaviour
     {
         //loadGameButton();
         //afkReward();
+        newRock = RockHandler();
         InvokeRepeating("autoClick", .01f, .01f); //call autoclick every nth second, see goldCountSpeed
         InvokeRepeating("comboTick", .5f, .5f);
         //InvokeRepeating("Save.SaveGame()", 60f, 60f); // auto-save game every 60 seconds
@@ -61,6 +64,26 @@ public class Main : MonoBehaviour
         Debug.Log("Player rewarded " + (int)gReward + " gold!");
     }
 
+    public Rock RockHandler() //static?
+    {
+        //generate rock based on gold etc
+        System.Random rnd = new System.Random();
+        int i = rnd.Next(4);
+        switch (i)
+        {
+            case 0:
+                return new Rock(5, 5);
+            case 1:
+                return new Rock(10, 10);
+            case 2:
+                return new Rock(25, 50);
+            case 3:
+                return new Rock(50, 100);
+            default:
+                return new Rock(1, 0);
+        }
+    }
+
     public void comboTick()
     {
         if (comboCounter > 0)
@@ -73,14 +96,26 @@ public class Main : MonoBehaviour
     //manual clicking
     public void manualClick()
     {
-        addGold(Player1.clickInc * getComboMultiplier());
+        //addGold(Player1.clickInc * getComboMultiplier
+        addGold(Player1.clickInc);
+        int g = newRock.hit((int)Player1.clickInc * getComboMultiplier());
+        if (g > 0)
+        {
+            Debug.Log("ROCK BREAK " + g + " gold ");
+            addGold(g);
+            newRock = RockHandler();
+        } else
+        {
+            //Debug.Log(newRock.getHP());
+        }
+
         if (comboCounter < comboCounterLimit) { comboCounter++; }
     }
 
     //auto clicking
     void autoClick()
     {
-        addGold(Player1.autoInc / goldCountSpeed); // 
+        addGold(Player1.autoInc / goldCountSpeed); 
     }
 
     // GETTERS AND SETTERS
