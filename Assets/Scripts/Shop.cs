@@ -15,6 +15,7 @@ public class Shop : MonoBehaviour
     public static void purchase(int i)
     {
         items[i].purchase();
+        FindObjectOfType<AudioManager>().Play("shopPurchase");
     }
 
     public static string getTitle(int i)

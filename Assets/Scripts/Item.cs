@@ -36,8 +36,8 @@ public class Item : MonoBehaviour
             Main.removeGold(getPrice());
             Main.addAutoInc(getAutoInc());
             Main.addInventory(getItemID());
-            Debug.Log("You have " + Main.getInventory(getItemID()) + " " + getTitle());
-            Debug.Log(msg);
+            //Debug.Log("You have " + Main.getInventory(getItemID()) + " " + getTitle());
+            //Debug.Log(msg);
 
         } else
         {

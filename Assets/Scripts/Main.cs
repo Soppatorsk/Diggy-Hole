@@ -96,12 +96,14 @@ public class Main : MonoBehaviour
     //manual clicking
     public void manualClick()
     {
+        FindObjectOfType<AudioManager>().Play("rockHit");
         //addGold(Player1.clickInc * getComboMultiplier
         addGold(Player1.clickInc);
         int g = newRock.hit((int)Player1.clickInc * getComboMultiplier());
         if (g > 0)
         {
             Debug.Log("ROCK BREAK " + g + " gold ");
+            FindObjectOfType<AudioManager>().Play("rockBreak");
             addGold(g);
             newRock = RockHandler();
         } else
@@ -189,7 +191,7 @@ public class Main : MonoBehaviour
         }
         else
         {
-            Debug.Log("Not enough gold");
+            //Debug.Log("Not enough gold");
         }
 
     }
