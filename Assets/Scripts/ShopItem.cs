@@ -16,7 +16,7 @@ public class ShopItem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        titleDisplay.GetComponent<Text>().text = Shop.getTitle(id).ToString();
+        titleDisplay.GetComponent<Text>().text = Shop.getTitle(id).ToString(); //make a UI manager?
         priceDisplay.GetComponent<Text>().text = Main.numberFormatter(Shop.getPrice(id));
         autoIncDisplay.GetComponent<Text>().text = "+" + Main.numberFormatter(Shop.getAutoInc(id)) + " gps";
         rankDisplay.GetComponent<Text>().text = " ";

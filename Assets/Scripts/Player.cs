@@ -21,7 +21,7 @@ public class Player : ISerializable
 
     public int[] inventory = new int[5];
 
-    public DateTime lastSave;
+    public DateTime saveDate;
 
     public Player() { }
 
@@ -31,7 +31,7 @@ public class Player : ISerializable
         info.AddValue("clickInc", clickInc, typeof(double));
         info.AddValue("autoInc", autoInc, typeof(double));
         info.AddValue("inventory", inventory, typeof(int[]));
-        info.AddValue("last save", lastSave, typeof(DateTime));
+        info.AddValue("save date", saveDate, typeof(DateTime));
     }
 
     public Player(SerializationInfo info, StreamingContext context)
@@ -40,6 +40,6 @@ public class Player : ISerializable
         clickInc = (double)info.GetValue("clickInc", typeof(double));
         autoInc = (double)info.GetValue("autoInc", typeof(double));
         inventory = (int[])info.GetValue("inventory", typeof(int[]));
-        lastSave = (DateTime)info.GetValue("last save", typeof(DateTime));
+        saveDate = (DateTime)info.GetValue("save date", typeof(DateTime));
     }
 }

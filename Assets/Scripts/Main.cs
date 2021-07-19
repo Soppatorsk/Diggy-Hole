@@ -30,38 +30,38 @@ public class Main : MonoBehaviour
 
     void Start()
     {
-        //loadGameButton();
-        //afkReward();
+        loadGame();
+        afkReward();
         newRock = RockHandler();
-        InvokeRepeating("autoClick", .01f, .01f); //call autoclick every nth second, see goldCountSpeed
+        InvokeRepeating("autoClick", .01f, .01f);
         InvokeRepeating("comboTick", .5f, .5f);
-        //InvokeRepeating("Save.SaveGame()", 60f, 60f); // auto-save game every 60 seconds
+        InvokeRepeating("saveGame", 60f, 60f);
     }
 
     void Update()
     {
-        //UI displays. move to other script file eventually(?)
+        //UI displays, make a UI Handler?
         goldDisplay.GetComponent<Text>().text = String.Format("{0:0000000000000000000}", getGold());
         autoIncDisplay.GetComponent<Text>().text = "Gold/s " + numberFormatter(getAutoInc());
 
         comboDisplay.GetComponent<Text>().text = "x" + getComboMultiplier().ToString();
         comboBar.transform.position = new Vector3(comboCounter * 5 - 100, 1200, 0);
+        
         //Debug.Log(comboCounter + "," + comboMultiplier);
     }
 
     public void afkReward()
     {
-        //get time diff
-        DateTime lastSave = getLastSave();
-        Debug.Log(getLastSave().ToString());
-        DateTime currentTime = DateTime.Now;
-        TimeSpan diff = currentTime.Subtract(lastSave);
+        
+        TimeSpan diff = DateTime.Now.Subtract(getSaveDate());
+
         double diffSeconds = diff.TotalSeconds;
-        //calculate reward
+        Debug.Log(diffSeconds);
         double gReward = (diffSeconds * getAutoInc() * getAFKMultiplier());
         //reward gold
-        addGold((int)gReward);
-        Debug.Log("Player rewarded " + (int)gReward + " gold!");
+        addGold(gReward);
+
+        Debug.Log("Player rewarded " + gReward + " gold!");
     }
 
     public Rock RockHandler() //static?
@@ -127,17 +127,24 @@ public class Main : MonoBehaviour
         return AFKMultiplier;
     }
 
-    public void saveGameButton()
+    //save/load
+    public void saveGame()
     {
+        setSaveDate(DateTime.Now);
         Save.SaveGame(Player1);
         Debug.Log("Save the game");
     }
 
-    public void loadGameButton()
+    public void loadGame()
     {
         Player1 = Save.LoadGame();
         Debug.Log("Loaded the game");
-        //Shop.updateDisplays(); //TODO Fix this nullexception
+        //TODO update displays
+    }
+
+    public void resetGame()
+    {
+        Player1 = new Player();
     }
 
     //Combo
@@ -212,35 +219,15 @@ public class Main : MonoBehaviour
         Player1.inventory[i]++;
     }
 
-    //Inventory
-    public static int[] getFullInventory()
-    {
-        int[] i = new int[99];
-        Player1.inventory = i;
-        return i;
-    }
-
-    public void setFullInventory(int[] i)
-    {
-        Player1.inventory = i;
-    }
-
-    //Player, full stats. used in save file.
-
-    internal static Player GetPlayer()
-    {
-        return Player1;
-    }
-
-    public static void setPlayer(Player clone)
-    {
-        Player1 = clone;
-    }
-
     //Save date
-    public DateTime getLastSave()
+    public DateTime getSaveDate()
     {
-        return Player1.lastSave;
+        return Player1.saveDate;
+    }
+
+    public void setSaveDate(DateTime current)
+    {
+        Player1.saveDate = current;
     }
 
     public static string numberFormatter(double n)
