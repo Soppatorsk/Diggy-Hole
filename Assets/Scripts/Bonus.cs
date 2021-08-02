@@ -8,6 +8,8 @@ public class Bonus : MonoBehaviour
     public float bonusClickInc;
     //use the editor to make prefabs to spawn in
 
+    
+
     void Update()
     {
         if (timeRemaining > 0)

@@ -32,6 +32,9 @@ public class Main : MonoBehaviour
 
     public static float bonusClickInc = 1;
 
+    public GameObject rareSpawn;
+    public Transform mainClick;
+
     void Start()
     {
         loadGame();
@@ -40,6 +43,7 @@ public class Main : MonoBehaviour
         InvokeRepeating("autoClick", .01f, .01f);
         InvokeRepeating("comboTick", .5f, .5f);
         InvokeRepeating("saveGame", 60f, 60f);
+        InvokeRepeating("rareSpawnHandler", 1f, 1f);
     }
 
     void Update()
@@ -68,9 +72,9 @@ public class Main : MonoBehaviour
         Debug.Log("Player rewarded " + gReward + " gold!");
     }
 
-    public Rock RockHandler() //static?
+    public Rock RockHandler()
     {
-        //generate rock based on gold etc
+        //TODO generate rock based on gold etc
         System.Random rnd = new System.Random();
         int i = rnd.Next(4);
         switch (i)
@@ -97,6 +101,23 @@ public class Main : MonoBehaviour
         }
     }
 
+    //Bonuses
+    public void BonusClickInc()
+    {
+        Instantiate(bonusObjClick, new Vector3(0, 0), Quaternion.identity);
+    }
+
+    public void rareSpawnHandler()
+    {
+        var rand = new System.Random();
+        if (rand.Next(10) < 1)
+        {
+            Instantiate(rareSpawn, new Vector3(), Quaternion.identity, mainClick);
+            Debug.Log("RARE SPAWN");
+        } 
+        
+    }
+
     //manual clicking
     public void manualClick()
     {
@@ -121,13 +142,7 @@ public class Main : MonoBehaviour
     //auto clicking
     void autoClick()
     {
-        addGold(Player1.autoInc / goldCountSpeed); 
-    }
-
-    //Bonuses
-    public void BonusClickInc()
-    {
-        Instantiate(bonusObjClick, new Vector3(0, 0), Quaternion.identity);
+        addGold(Player1.autoInc / goldCountSpeed);
     }
 
     // GETTERS AND SETTERS
