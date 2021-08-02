@@ -28,6 +28,10 @@ public class Main : MonoBehaviour
     int combo2xCutoff = 10;
     int combo3xCutoff = 40;
 
+    public GameObject bonusObjClick;
+
+    public static float bonusClickInc = 1;
+
     void Start()
     {
         loadGame();
@@ -98,8 +102,8 @@ public class Main : MonoBehaviour
     {
         FindObjectOfType<AudioManager>().Play("rockHit");
         //addGold(Player1.clickInc * getComboMultiplier
-        addGold(Player1.clickInc);
-        int g = newRock.hit((int)Player1.clickInc * getComboMultiplier());
+        addGold(Player1.clickInc * bonusClickInc);
+        int g = newRock.hit((int)Player1.clickInc * getComboMultiplier() * (int)bonusClickInc);
         if (g > 0)
         {
             Debug.Log("ROCK BREAK " + g + " gold ");
@@ -118,6 +122,12 @@ public class Main : MonoBehaviour
     void autoClick()
     {
         addGold(Player1.autoInc / goldCountSpeed); 
+    }
+
+    //Bonuses
+    public void BonusClickInc()
+    {
+        Instantiate(bonusObjClick, new Vector3(0, 0), Quaternion.identity);
     }
 
     // GETTERS AND SETTERS
