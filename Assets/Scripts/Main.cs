@@ -242,12 +242,35 @@ public class Main : MonoBehaviour
 
     public static string numberFormatter(double n)
     { //TODO replace E+04 etc with letters, d, c, k, m etc
+        string output = "";
         if (n >= 10000)
         {
-           return n.ToString("G2", CultureInfo.InvariantCulture);
-        } else
-        {
-            return n.ToString();
+            output = n.ToString("G2", CultureInfo.InvariantCulture);
+            string eNum = output.Substring(Math.Max(0, output.Length - 4));
+            switch (eNum) {
+                case "E+04":
+                    return output.Replace(eNum, "A");
+                case "E+05":
+                    return output.Replace(eNum, "B");
+                case "E+06":
+                    return output.Replace(eNum, "C");
+                case "E+07":
+                    return output.Replace(eNum, "D");
+                case "E+08":
+                    return output.Replace(eNum, "E");
+                case "E+09":
+                    return output.Replace(eNum, "F");
+                case "E+10":
+                    return output.Replace(eNum, "G");
+                case "E+11":
+                    return output.Replace(eNum, "H");
+                case "E+12":
+                    return output.Replace(eNum, "I");
+                case "E+13":
+                    return output.Replace(eNum, "J");
+            }
         }
+
+        return n.ToString();
     }
 }
