@@ -686,10 +686,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
+    m_FontSize: 22
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 2
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -1451,7 +1451,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 110.8512, y: -99.82983}
+  m_AnchoredPosition: {x: 110.85, y: -99.4}
   m_SizeDelta: {x: 221.7079, y: 117.164}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &659997038
@@ -1811,8 +1811,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 71.899, y: -70}
-  m_SizeDelta: {x: 143.7984, y: 104.3125}
+  m_AnchoredPosition: {x: 70.80649, y: -67.955505}
+  m_SizeDelta: {x: 141.6134, y: 95.4449}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &881096718
 MonoBehaviour:
@@ -2390,6 +2390,7 @@ MonoBehaviour:
   comboDisplay: {fileID: 814604136}
   comboBar: {fileID: 944007417}
   comboBox: {fileID: 1652833402}
+  bonusObjClick: {fileID: 0}
 --- !u!4 &1141344042
 Transform:
   m_ObjectHideFlags: 0
@@ -3694,8 +3695,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -237.9, y: -14.6}
-  m_SizeDelta: {x: -522.563, y: -36.416}
+  m_AnchoredPosition: {x: -235, y: -10.6}
+  m_SizeDelta: {x: -516.7056, y: -47.0766}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1652833404
 MonoBehaviour:
@@ -4449,7 +4450,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.627451, g: 0.52156866, b: 0.17254902, a: 1}
+  m_Color: {r: 0.9333334, g: 0.5529412, b: 0.18823531, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
