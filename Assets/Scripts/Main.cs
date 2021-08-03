@@ -37,8 +37,9 @@ public class Main : MonoBehaviour
 
     void Start()
     {
-        loadGame();
-        afkReward();
+        //TODO all of these are called on every scene change. make a GAME init function?
+        //switching scenes in middle of a rare drop makes it dissapear and reset, etc
+        //afkReward();
         newRock = RockHandler();
         InvokeRepeating("autoClick", .01f, .01f);
         InvokeRepeating("comboTick", .5f, .5f);
@@ -153,14 +154,14 @@ public class Main : MonoBehaviour
     }
 
     //save/load
-    public void saveGame()
+    public static void saveGame()
     {
         setSaveDate(DateTime.Now);
         Save.SaveGame(Player1);
         Debug.Log("Save the game");
     }
 
-    public void loadGame()
+    public static void loadGame()
     {
         Player1 = Save.LoadGame();
         Debug.Log("Loaded the game");
@@ -250,7 +251,7 @@ public class Main : MonoBehaviour
         return Player1.saveDate;
     }
 
-    public void setSaveDate(DateTime current)
+    public static void setSaveDate(DateTime current)
     {
         Player1.saveDate = current;
     }

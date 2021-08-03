@@ -21,6 +21,8 @@ public class RareSpawn : MonoBehaviour
 
     public void pressed()
     {
+
+        //TODO rnd switch case, spawn different bonuses
         Instantiate(bonusObjClick, new Vector3(0, 0), Quaternion.identity);
         Destroy(gameObject);
     }
