@@ -8,13 +8,6 @@ using System.Globalization;
 public class Main : MonoBehaviour
 {
     //TODO save/load game fix
-    public GameObject goldDisplay;
-    public GameObject autoIncDisplay;
-
-    public GameObject comboDisplay;
-    public GameObject comboBar;
-    public GameObject comboBox;
-
     static Player Player1 = new Player();
 
     Rock newRock = new Rock(1, 0);
@@ -28,17 +21,10 @@ public class Main : MonoBehaviour
     int combo2xCutoff = 10;
     int combo3xCutoff = 40;
 
-    public GameObject bonusObjClick;
-
     public static float bonusClickInc = 1;
-
-    public GameObject rareSpawn;
-    public Transform mainClick;
 
     void Start()
     {
-        //TODO all of these are called on every scene change. make a GAME init function?
-        //switching scenes in middle of a rare drop makes it dissapear and reset, etc
         loadGame();
         afkReward();
         newRock = RockHandler();
@@ -51,13 +37,11 @@ public class Main : MonoBehaviour
     void Update()
     {
         //UI displays, make a UI Handler?
-        goldDisplay.GetComponent<Text>().text = String.Format("{0:0000000000000000000}", getGold());
-        autoIncDisplay.GetComponent<Text>().text = "Gold/s " + numberFormatter(getAutoInc());
+        ObjectManager.Get().goldDisplay.GetComponent<Text>().text = String.Format("{0:0000000000000000000}", getGold());
+        ObjectManager.Get().autoIncDisplay.GetComponent<Text>().text = "Gold/s " + numberFormatter(getAutoInc());
 
-        comboDisplay.GetComponent<Text>().text = "x" + getComboMultiplier().ToString();
-        comboBar.transform.position = new Vector3(comboCounter * 5 - 100, 1200, 0);
-        
-        //Debug.Log(comboCounter + "," + comboMultiplier);
+        ObjectManager.Get().comboDisplay.GetComponent<Text>().text = "x" + getComboMultiplier().ToString();
+        ObjectManager.Get().comboBar.transform.position = new Vector3(comboCounter * 5 - 100, 1200, 0);
     }
 
     public void afkReward()
@@ -104,17 +88,12 @@ public class Main : MonoBehaviour
     }
 
     //Bonuses
-    public void BonusClickInc()
-    {
-        Instantiate(bonusObjClick, new Vector3(0, 0), Quaternion.identity);
-    }
-
     public void rareSpawnHandler()
     {
         var rand = new System.Random();
         if (rand.Next(10) < 1)
         {
-            Instantiate(rareSpawn, new Vector3(), Quaternion.identity, mainClick);
+            Instantiate(ObjectManager.Get().rareSpawn, new Vector3(), Quaternion.identity, ObjectManager.Get().mainClick);
             Debug.Log("RARE SPAWN");
         } 
         
