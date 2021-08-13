@@ -1605,9 +1605,13 @@ MonoBehaviour:
   rareSpawn: {fileID: 8398395025143610058, guid: 7c6318b97671544439b9ce75e35eef7c,
     type: 3}
   mainClick: {fileID: 87278695}
-  bonusObjClick: {fileID: 7370336239406150504, guid: bf59f0933d9850b46ae190a342dd6610,
+  buffClicking: {fileID: 7370336239406150504, guid: bf59f0933d9850b46ae190a342dd6610,
     type: 3}
-  buffDisplay: {fileID: 0}
+  buffAutoInc: {fileID: 3658014819614996625, guid: 4d9ce02eaa2363b469111c5b96c4b4a1,
+    type: 3}
+  buffGoldReward: {fileID: 2917224538319112124, guid: 99ebc81140c04e743a8604db4eff3ab5,
+    type: 3}
+  buffDisplay: {fileID: 2036261826}
 --- !u!4 &433511254
 Transform:
   m_ObjectHideFlags: 0
@@ -5083,7 +5087,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2036261825}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
