@@ -1143,6 +1143,18 @@ MonoBehaviour:
   shopTab2: {fileID: 1341006906}
   shopTab3: {fileID: 253763375}
   shopTab4: {fileID: 814210885}
+  shopTabButton1: {fileID: 881096718}
+  shopTabButton1Off: {fileID: 21300000, guid: d7e0114c98cb74b4fb003830ed5fde8d, type: 3}
+  shopTabButton1On: {fileID: 21300000, guid: 622ef2f77dc6047b48796bbca60bcddd, type: 3}
+  shopTabButton2: {fileID: 29346658}
+  shopTabButton2Off: {fileID: 21300000, guid: 966a938c128ac4eecbb05e948d0249d8, type: 3}
+  shopTabButton2On: {fileID: 21300000, guid: 72ad55e7dda934debbff25aff307dafe, type: 3}
+  shopTabButton3: {fileID: 1892500256}
+  shopTabButton3Off: {fileID: 21300000, guid: eba9deec7cc0445388046eb922fb4568, type: 3}
+  shopTabButton3On: {fileID: 21300000, guid: e9adc994b183f43b3bdb5e3c53a8d680, type: 3}
+  shopTabButton4: {fileID: 896605201}
+  shopTabButton4Off: {fileID: 21300000, guid: 3769baccc320543e6ba5ac76f9a6064c, type: 3}
+  shopTabButton4On: {fileID: 21300000, guid: 22147fe29f30041889f6ffb3bd789f48, type: 3}
 --- !u!1 &253763375
 GameObject:
   m_ObjectHideFlags: 0
@@ -2053,7 +2065,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
