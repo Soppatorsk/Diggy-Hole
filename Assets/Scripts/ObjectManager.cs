@@ -23,5 +23,9 @@ public class ObjectManager : MonoBehaviour
     public GameObject rareSpawn;
     public Transform mainClick;
 
-    public GameObject bonusObjClick;
+    public GameObject buffClicking;
+    public GameObject buffAutoInc;
+    public GameObject buffGoldReward;
+
+    public Transform buffDisplay;
 }

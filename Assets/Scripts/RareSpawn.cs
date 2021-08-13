@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RareSpawn : MonoBehaviour
 {
-    public GameObject bonusObjClick;
+    public GameObject buffClicking;
 
     void Start()
     {
@@ -21,9 +21,23 @@ public class RareSpawn : MonoBehaviour
 
     public void pressed()
     {
+        System.Random rnd = new System.Random();
 
-        //TODO rnd switch case, spawn different bonuses
-        Instantiate(bonusObjClick, new Vector3(0, 0), Quaternion.identity);
+        switch (rnd.Next(3))
+        {
+            case 0:
+                Instantiate(ObjectManager.Get().buffClicking, new Vector3(0, 0), Quaternion.identity, ObjectManager.Get().buffDisplay);
+                break;
+            case 1:
+                Instantiate(ObjectManager.Get().buffAutoInc, new Vector3(0, 0), Quaternion.identity, ObjectManager.Get().buffDisplay);
+                break;
+            case 2:
+                Instantiate(ObjectManager.Get().buffGoldReward, new Vector3(0, 0), Quaternion.identity, ObjectManager.Get().buffDisplay);
+                break;
+            default:
+                Instantiate(ObjectManager.Get().buffGoldReward, new Vector3(0, 0), Quaternion.identity, ObjectManager.Get().buffDisplay);
+                break;
+        }
         Destroy(gameObject);
     }
 }

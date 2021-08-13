@@ -22,6 +22,7 @@ public class Main : MonoBehaviour
     int combo3xCutoff = 40;
 
     public static float bonusClickInc = 1;
+    public static float bonusAutoInc = 1;
 
     void Start()
     {
@@ -31,7 +32,7 @@ public class Main : MonoBehaviour
         InvokeRepeating("autoClick", .01f, .01f);
         InvokeRepeating("comboTick", .5f, .5f);
         InvokeRepeating("saveGame", 60f, 60f);
-        InvokeRepeating("rareSpawnHandler", 1f, 1f);
+        InvokeRepeating("rareSpawnHandler", .1f, .1f);
     }
 
     void Update()
@@ -123,7 +124,7 @@ public class Main : MonoBehaviour
     //auto clicking
     void autoClick()
     {
-        addGold(Player1.autoInc / goldCountSpeed);
+        addGold(Player1.autoInc * bonusAutoInc / goldCountSpeed);
     }
 
     // GETTERS AND SETTERS
@@ -191,7 +192,7 @@ public class Main : MonoBehaviour
         return Player1.gold;
     }
 
-    public void addGold(double i)
+    public static void addGold(double i)
     {
         Player1.gold += i;
     }
