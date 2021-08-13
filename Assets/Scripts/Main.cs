@@ -39,7 +39,8 @@ public class Main : MonoBehaviour
     {
         //TODO all of these are called on every scene change. make a GAME init function?
         //switching scenes in middle of a rare drop makes it dissapear and reset, etc
-        //afkReward();
+        loadGame();
+        afkReward();
         newRock = RockHandler();
         InvokeRepeating("autoClick", .01f, .01f);
         InvokeRepeating("comboTick", .5f, .5f);
