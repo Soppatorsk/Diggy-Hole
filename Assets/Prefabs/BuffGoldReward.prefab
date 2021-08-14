@@ -88,7 +88,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36556572fa858754db1c2718702597ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeRemaining: 1
-  bonusClickInc: 1
-  bonusAutoInc: 1
-  goldReward: 10000
+  type: goldReward
+  time: 3

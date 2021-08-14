@@ -1605,7 +1605,7 @@ MonoBehaviour:
   rareSpawn: {fileID: 8398395025143610058, guid: 7c6318b97671544439b9ce75e35eef7c,
     type: 3}
   mainClick: {fileID: 87278695}
-  buffClicking: {fileID: 7370336239406150504, guid: bf59f0933d9850b46ae190a342dd6610,
+  buffClicking: {fileID: 7132941352439008695, guid: 35fe286f82940e54fa1f0b1fb91ff0da,
     type: 3}
   buffAutoInc: {fileID: 3658014819614996625, guid: 4d9ce02eaa2363b469111c5b96c4b4a1,
     type: 3}
@@ -5001,6 +5001,12 @@ MonoBehaviour:
     volume: 0
     pitch: 1
     loop: 1
+    source: {fileID: 0}
+  - name: powerUp
+    clip: {fileID: 8300000, guid: ecdd363af7b2b76458cb04081547e4d3, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
     source: {fileID: 0}
 --- !u!4 &2002782492
 Transform:

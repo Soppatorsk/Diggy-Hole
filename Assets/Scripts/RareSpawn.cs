@@ -21,6 +21,7 @@ public class RareSpawn : MonoBehaviour
 
     public void pressed()
     {
+        FindObjectOfType<AudioManager>().Play("powerUp");
         System.Random rnd = new System.Random();
 
         switch (rnd.Next(3))
