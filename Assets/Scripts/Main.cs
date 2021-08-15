@@ -24,6 +24,9 @@ public class Main : MonoBehaviour
     public static float bonusClickInc = 1;
     public static float bonusAutoInc = 1;
 
+    public static int activeBonusA = 0;
+    public static int activeBonusC = 0;
+
     void Start()
     {
         loadGame();
