@@ -16,6 +16,7 @@ public class Bonus : MonoBehaviour
 
     void Update()
     {
+       if ((stackedBuff && Main.activeBonusA < 2) || (stackedBuff && Main.activeBonusC < 2)) { stackedBuff = false; }
        if (type == "clicking")
         {
             if (Main.activeBonusC == 2 && !stackedBuff) { Main.activeBonusC -= 1; Destroy(gameObject);  } //TODO buff reset check work a third time, currently only able to "reset" a buff once, get three in a row and you get an abundant duplicate. might not be a problem if spawns are are enough
