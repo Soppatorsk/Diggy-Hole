@@ -13,6 +13,7 @@ public class ObjectManager : MonoBehaviour
         return m_Instance;
     }
     // class 
+    public Transform mainClick;
     public GameObject goldDisplay;
     public GameObject autoIncDisplay;
 
@@ -21,7 +22,6 @@ public class ObjectManager : MonoBehaviour
     public GameObject comboBox;
 
     public GameObject rareSpawn;
-    public Transform mainClick;
 
     public GameObject buffClicking;
     public GameObject buffAutoInc;

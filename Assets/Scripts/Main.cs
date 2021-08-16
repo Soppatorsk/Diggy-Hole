@@ -7,12 +7,11 @@ using System.Globalization;
 
 public class Main : MonoBehaviour
 {
-    //TODO save/load game fix
     static Player Player1 = new Player();
 
     Rock newRock = new Rock(1, 0);
 
-    int goldCountSpeed = 100; //pointless over 60 because of refresh rate?
+    int goldCountSpeed = 100; //TODO pointless over 60 because of refresh rate?
     double AFKMultiplier = 0.2;
 
     int comboMultiplier = 1; //TODO maybe combo in its own class
@@ -29,13 +28,13 @@ public class Main : MonoBehaviour
 
     void Start()
     {
-        loadGame();
+        resetGame();
         afkReward();
         newRock = RockHandler();
         InvokeRepeating("autoClick", .01f, .01f);
         InvokeRepeating("comboTick", .5f, .5f);
         InvokeRepeating("saveGame", 60f, 60f);
-        InvokeRepeating("rareSpawnHandler", .1f, .1f);
+        InvokeRepeating("rareSpawnHandler", 10f, 10f);
     }
 
     void Update()

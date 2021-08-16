@@ -16,8 +16,6 @@ public class Item : MonoBehaviour
 
     long autoInc;
 
-    int rank; //TODO
-
     // CONSTRUCTOR
     public Item(int itemID, string itemTitle, long itemBasePrice, double itemPrice_k, long itemAutoInc)
     {
@@ -32,14 +30,15 @@ public class Item : MonoBehaviour
     {
         if (Main.getGold() >= getPrice())
         {
-            string msg = "Bought " + getTitle() + " for " + getPrice() + " gold, adding " + getAutoInc() + " gold per second >>>";
             Main.removeGold(getPrice());
             Main.addAutoInc(getAutoInc());
             Main.addInventory(getItemID());
+            //string msg = "Bought " + getTitle() + " for " + getPrice() + " gold, adding " + getAutoInc() + " gold per second >>>";
             //Debug.Log("You have " + Main.getInventory(getItemID()) + " " + getTitle());
             //Debug.Log(msg);
 
-        } else
+        }
+        else
         {
             Debug.Log("Not enough gold");
         }

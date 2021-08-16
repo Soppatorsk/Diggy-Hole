@@ -9,12 +9,13 @@ public class Shop : MonoBehaviour
     static Item item_1 = new Item(0, "Pickaxe", 10, 1.1, 1);
     static Item item_2 = new Item(1, "Potato", 25, 1.1, 2);
     static Item item_3 = new Item(2, "Diamond Pickaxe", 1, 1, 999999999);
-    static Item[] items = new Item[3] { item_1, item_2, item_3};
+    static Item[] items = new Item[3] { item_1, item_2, item_3 };
 
     // GETTERS AND SETTERS
     public static void purchase(int i)
     {
         items[i].purchase();
+
         FindObjectOfType<AudioManager>().Play("shopPurchase");
     }
 
