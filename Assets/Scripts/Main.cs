@@ -11,6 +11,9 @@ public class Main : MonoBehaviour
 
     Rock newRock = new Rock(1, 0);
 
+    Transform shopDefault;
+    bool shopUp = true;
+
     int goldCountSpeed = 100; //TODO pointless over 60 because of refresh rate?
     double AFKMultiplier = 0.2;
 
@@ -25,6 +28,9 @@ public class Main : MonoBehaviour
 
     public static int activeBonusA = 0;
     public static int activeBonusC = 0;
+
+  
+
 
     void Start()
     {
@@ -80,6 +86,15 @@ public class Main : MonoBehaviour
                 return new Rock(1, 0);
         }
     }
+
+    public void toggleShop()
+    {
+        var shop = ObjectManager.Get().shopWindow;
+        int d = 900;
+        if (shopUp) { shop.transform.position -= new Vector3(0, d); shopUp = false; }
+        else { shop.transform.position += new Vector3(0, d); shopUp = true; }
+    }
+
 
     public void comboTick()
     {
