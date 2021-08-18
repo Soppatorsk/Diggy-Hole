@@ -603,7 +603,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 72b87db7953bb40a9885075a5e4ecd8a, type: 3}
-    m_FontSize: 34
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -639,7 +639,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -130, y: -0.69923}
+  m_AnchoredPosition: {x: -130, y: -4.6}
   m_SizeDelta: {x: 251.7532, y: -25.938354}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &81535167
@@ -3850,6 +3850,21 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8402466855264503628, guid: 6d0f479d68b7fd94c9ad9d935679205b,
         type: 3}
+      propertyPath: m_Color.b
+      value: 0.1986917
+      objectReference: {fileID: 0}
+    - target: {fileID: 8402466855264503628, guid: 6d0f479d68b7fd94c9ad9d935679205b,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.3117805
+      objectReference: {fileID: 0}
+    - target: {fileID: 8402466855264503628, guid: 6d0f479d68b7fd94c9ad9d935679205b,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.8962264
+      objectReference: {fileID: 0}
+    - target: {fileID: 8402466855264503628, guid: 6d0f479d68b7fd94c9ad9d935679205b,
+        type: 3}
       propertyPath: m_FontData.m_Alignment
       value: 5
       objectReference: {fileID: 0}
@@ -3866,12 +3881,12 @@ PrefabInstance:
     - target: {fileID: 8402466855264503629, guid: 6d0f479d68b7fd94c9ad9d935679205b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 130.1
+      value: 134
       objectReference: {fileID: 0}
     - target: {fileID: 8402466855264503629, guid: 6d0f479d68b7fd94c9ad9d935679205b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -22
+      value: -19.513
       objectReference: {fileID: 0}
     - target: {fileID: 8402466855520503872, guid: 6d0f479d68b7fd94c9ad9d935679205b,
         type: 3}
@@ -3949,6 +3964,12 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 8402466855520503875, guid: 6d0f479d68b7fd94c9ad9d935679205b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ce089a8994bde46a1bf42650c982e9a3,
+        type: 3}
     - target: {fileID: 8402466855520503875, guid: 6d0f479d68b7fd94c9ad9d935679205b,
         type: 3}
       propertyPath: m_Color.b
