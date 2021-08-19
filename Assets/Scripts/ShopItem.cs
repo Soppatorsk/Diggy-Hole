@@ -9,16 +9,15 @@ public class ShopItem : MonoBehaviour
     public GameObject priceDisplay;
     public GameObject autoIncDisplay;
     public GameObject rankDisplay;
+
     public Button purchaseItemBtn;
-
-
 
     public int id;
 
     // Start is called before the first frame update
     void Start()
     {
-        titleDisplay.GetComponent<Text>().text = Shop.getTitle(id).ToString(); //make a UI manager?
+        titleDisplay.GetComponent<Text>().text = Shop.getTitle(id).ToString();
         priceDisplay.GetComponent<Text>().text = Main.numberFormatter(Shop.getPrice(id));
         autoIncDisplay.GetComponent<Text>().text = "+" + Main.numberFormatter(Shop.getAutoInc(id)) + " gps";
     }
@@ -26,7 +25,7 @@ public class ShopItem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        priceDisplay.GetComponent<Text>().text = Main.numberFormatter(Shop.getPrice(id)) + "g"; // only need to call per purchase. but shit dont work so lol
+        priceDisplay.GetComponent<Text>().text = Main.numberFormatter(Shop.getPrice(id)) + "g"; //TODO only need to call per purchase. but shit dont work so lol
         rankDisplay.GetComponent<Text>().text = "Rank: " + Main.getInventory(id);
         ButtonToggle();
     }

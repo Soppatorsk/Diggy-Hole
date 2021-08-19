@@ -16,8 +16,6 @@ public class ItemDisplay : MonoBehaviour
         {
             gameObject.GetComponent<Image>().enabled = true;
         }
-
-        //gameObject.GetComponent<Image>().sprite = sprites[2];
         
         for (int i = 0; i<5; i++)
         {

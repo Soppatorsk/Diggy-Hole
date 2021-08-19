@@ -29,9 +29,6 @@ public class Main : MonoBehaviour
     public static int activeBonusA = 0;
     public static int activeBonusC = 0;
 
-  
-
-
     void Start()
     {
         resetGame();
@@ -57,13 +54,10 @@ public class Main : MonoBehaviour
     {
         
         TimeSpan diff = DateTime.Now.Subtract(getSaveDate());
-
         double diffSeconds = diff.TotalSeconds;
-        Debug.Log(diffSeconds);
         double gReward = (diffSeconds * getAutoInc() * getAFKMultiplier());
         //reward gold
         addGold(gReward);
-
         Debug.Log("Player rewarded " + gReward + " gold!");
     }
 
@@ -113,15 +107,13 @@ public class Main : MonoBehaviour
         {
             Instantiate(ObjectManager.Get().rareSpawn, new Vector3(), Quaternion.identity, ObjectManager.Get().mainClick);
             Debug.Log("RARE SPAWN");
-        } 
-        
+        }    
     }
 
     //manual clicking
     public void manualClick()
     {
         FindObjectOfType<AudioManager>().Play("rockHit");
-        //addGold(Player1.clickInc * getComboMultiplier
         addGold(Player1.clickInc * bonusClickInc);
         int g = newRock.hit((int)Player1.clickInc * getComboMultiplier() * (int)bonusClickInc);
         if (g > 0)
@@ -130,10 +122,7 @@ public class Main : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("rockBreak");
             addGold(g);
             newRock = RockHandler();
-        } else
-        {
-            //Debug.Log(newRock.getHP());
-        }
+        } 
 
         if (comboCounter < comboCounterLimit) { comboCounter++; }
     }
@@ -156,14 +145,13 @@ public class Main : MonoBehaviour
     {
         setSaveDate(DateTime.Now);
         Save.SaveGame(Player1);
-        Debug.Log("Save the game");
+        Debug.Log("Saved the game");
     }
 
     public static void loadGame()
     {
         Player1 = Save.LoadGame();
         Debug.Log("Loaded the game");
-        //TODO update displays
     }
 
     public void resetGame()
@@ -232,7 +220,7 @@ public class Main : MonoBehaviour
         Player1.gold = i;
     }
 
-    //Inventory item quantity //TODO a rename?
+    //Inventory item quantity
     public static int getInventory(int i)
     {
         return Player1.inventory[i];
@@ -255,7 +243,7 @@ public class Main : MonoBehaviour
     }
 
     public static string numberFormatter(double n)
-    { //TODO replace E+04 etc with letters, d, c, k, m etc
+    {
         string output = "";
         if (n >= 10000)
         {

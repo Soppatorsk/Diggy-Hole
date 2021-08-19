@@ -8,8 +8,6 @@ public class Item : MonoBehaviour
 {
     int id;
     string title;
-    //public string description;
-    //icon img ? set in editor instead?
  
     long basePrice;
     double price_K;
