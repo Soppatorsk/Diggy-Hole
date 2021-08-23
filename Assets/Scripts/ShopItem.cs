@@ -35,9 +35,11 @@ public class ShopItem : MonoBehaviour
         if (Main.getGold() >= Shop.getPrice(id))
         {
             purchaseItemBtn.interactable = true;
+            priceDisplay.GetComponent<Text>().color = Color.black;
         } else
         {
             purchaseItemBtn.interactable = false;
+            priceDisplay.GetComponent<Text>().color = Color.red;
         }
     }
 }
