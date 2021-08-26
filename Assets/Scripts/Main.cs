@@ -23,6 +23,8 @@ public class Main : MonoBehaviour
     int combo2xCutoff = 10;
     int combo3xCutoff = 40;
 
+    int[] dwarfLevel = new int[] { 0, 1, 10, 25, 50, 100, 1000, 10000, };
+
     public static float bonusClickInc = 1;
     public static float bonusAutoInc = 1;
 
@@ -134,7 +136,17 @@ public class Main : MonoBehaviour
     }
 
     // GETTERS AND SETTERS
-    //afk
+    //level
+    public void getLevel()
+    {
+        double a = getAutoInc();
+        foreach (int levelreq in dwarfLevel)
+        {
+            //
+        }
+    }
+        
+        //afk
     private double getAFKMultiplier()
     {
         return AFKMultiplier;
