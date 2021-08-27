@@ -17,6 +17,9 @@ public class Main : MonoBehaviour
     int goldCountSpeed = 100; //TODO pointless over 60 because of refresh rate?
     double AFKMultiplier = 0.2;
 
+    double goldBefore;
+    double goldDiff;
+
     int comboMultiplier = 1; //TODO maybe combo in its own class
     int comboCounter = 0;
     int comboCounterLimit = 50;
@@ -40,13 +43,14 @@ public class Main : MonoBehaviour
         InvokeRepeating("comboTick", .5f, .5f);
         InvokeRepeating("saveGame", 60f, 60f);
         InvokeRepeating("rareSpawnHandler", 10f, 10f);
+        InvokeRepeating("calcIncome", 1f, 1f);
     }
 
     void Update()
     {
         //UI displays, make a UI Handler?
         ObjectManager.Get().goldDisplay.GetComponent<Text>().text = String.Format("{0:0000000000000000000}", getGold());
-        ObjectManager.Get().autoIncDisplay.GetComponent<Text>().text = "Gold/s " + numberFormatter(getAutoInc());
+        ObjectManager.Get().autoIncDisplay.GetComponent<Text>().text = "Gold/s " + numberFormatter((int)goldDiff);
 
         ObjectManager.Get().comboDisplay.GetComponent<Text>().text = "x" + getComboMultiplier().ToString();
         ObjectManager.Get().comboBar.transform.position = new Vector3(comboCounter * 5 - 100, 1200, 0);
@@ -110,6 +114,21 @@ public class Main : MonoBehaviour
             Instantiate(ObjectManager.Get().rareSpawn, new Vector3(), Quaternion.identity, ObjectManager.Get().mainClick);
             Debug.Log("RARE SPAWN");
         }    
+    }
+
+    //income calc
+    public void calcIncome()
+    {
+        double goldNow = getGold();
+        if (goldNow - goldBefore >= 0 )
+        {
+            goldDiff = goldNow - goldBefore;
+            goldBefore = goldNow;
+        } else
+        {
+            goldDiff = goldBefore;
+            goldBefore = goldNow;
+        }
     }
 
     //manual clicking
