@@ -19,7 +19,7 @@ public class Player : ISerializable
     public double clickInc = 1;
     public double autoInc = 0;
 
-    public int[] inventory = new int[5];
+    public int[] inventory = new int[17];
 
     public DateTime saveDate;
 
