@@ -15,6 +15,7 @@ public class ItemDisplay : MonoBehaviour
         if (rank >= 1)
         {
             gameObject.GetComponent<Image>().enabled = true;
+
         }
         
         for (int i = 0; i<5; i++)

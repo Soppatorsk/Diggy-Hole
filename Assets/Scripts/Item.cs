@@ -26,6 +26,11 @@ public class Item : MonoBehaviour
 
     public void purchase()
     {
+        if (Main.getInventory(id) == 0)
+        {
+            FindObjectOfType<AudioManager>().Play("wow");
+        }
+
         if (Main.getGold() >= getPrice())
         {
             Main.removeGold(getPrice());
