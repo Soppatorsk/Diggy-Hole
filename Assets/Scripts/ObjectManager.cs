@@ -17,6 +17,9 @@ public class ObjectManager : MonoBehaviour
     public GameObject goldDisplay;
     public GameObject autoIncDisplay;
 
+    public GameObject goldPopup;
+    public GameObject goldPopupContainer;
+
     public GameObject shopWindow;
 
     public GameObject comboDisplay;

@@ -9,6 +9,8 @@ public class Main : MonoBehaviour
 {
     static Player Player1 = new Player();
 
+    static double goldClick; // getClickInc, one click + bonuses
+
     Rock newRock = new Rock(1, 0);
 
     Transform shopDefault;
@@ -147,6 +149,9 @@ public class Main : MonoBehaviour
         } 
 
         if (comboCounter < comboCounterLimit) { comboCounter++; }
+
+        goldClick = Player1.clickInc + bonusClickInc + g;
+        Instantiate(ObjectManager.Get().goldPopup, new Vector3(ObjectManager.Get().goldPopupContainer.transform.position.x, ObjectManager.Get().goldPopupContainer.transform.position.y), Quaternion.identity, ObjectManager.Get().goldPopupContainer.transform);
     }
 
     //auto clicking
@@ -156,6 +161,12 @@ public class Main : MonoBehaviour
     }
 
     // GETTERS AND SETTERS
+
+    public static double getClickInc()
+    {
+        return goldClick;
+    }
+
     //level
     public void getLevel()
     {
