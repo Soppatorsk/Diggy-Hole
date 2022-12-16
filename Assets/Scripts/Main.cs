@@ -39,8 +39,8 @@ public class Main : MonoBehaviour
     void Start()
     {
         Application.targetFrameRate = 60;
-        resetGame();
-        afkReward();
+        //resetGame(); //testing
+        afkReward(); 
         newRock = RockHandler();
         InvokeRepeating("autoClick", .01f, .01f);
         InvokeRepeating("comboTick", .5f, .5f);
@@ -74,17 +74,18 @@ public class Main : MonoBehaviour
     {
         //TODO generate rock based on gold etc
         System.Random rnd = new System.Random();
+        int level = (int)getClickInc()+1;
         int i = rnd.Next(4);
         switch (i)
         {
             case 0:
-                return new Rock(5, 5);
+                return new Rock((level*5)+1, level*5-1);
             case 1:
-                return new Rock(10, 10);
+                return new Rock((level*10)+1, level*10-1);
             case 2:
-                return new Rock(25, 50);
+                return new Rock((level*25)+1, level*25-1);
             case 3:
-                return new Rock(50, 100);
+                return new Rock((level*50)+1, level*50-1);
             default:
                 return new Rock(1, 0);
         }
@@ -145,12 +146,13 @@ public class Main : MonoBehaviour
             Debug.Log("ROCK BREAK " + g + " gold ");
             FindObjectOfType<AudioManager>().Play("rockBreak");
             addGold(g);
+        Instantiate(ObjectManager.Get().goldChunk, new Vector3(ObjectManager.Get().goldChunkContainer.transform.position.x, ObjectManager.Get().goldChunkContainer.transform.position.y), Quaternion.identity, ObjectManager.Get().goldChunkContainer.transform);
             newRock = RockHandler();
         } 
 
         if (comboCounter < comboCounterLimit) { comboCounter++; }
 
-        goldClick = Player1.clickInc + bonusClickInc + g;
+        goldClick = Player1.clickInc * bonusClickInc + g;
         Instantiate(ObjectManager.Get().goldPopup, new Vector3(ObjectManager.Get().goldPopupContainer.transform.position.x, ObjectManager.Get().goldPopupContainer.transform.position.y), Quaternion.identity, ObjectManager.Get().goldPopupContainer.transform);
     }
 
@@ -165,6 +167,11 @@ public class Main : MonoBehaviour
     public static double getClickInc()
     {
         return goldClick;
+    }
+
+    public static void addAutoInc(double i)
+    {
+        Player1.autoInc += i;
     }
 
     //level
@@ -224,9 +231,9 @@ public class Main : MonoBehaviour
         return Player1.autoInc;
     }
 
-    public static void addAutoInc(double i)
+    public static void addClickInc(double i)
     {
-        Player1.autoInc += i;
+        Player1.clickInc += i;
     }
 
     public void setAutoInc(double i)

@@ -34,12 +34,15 @@ public class Item : MonoBehaviour
         if (Main.getGold() >= getPrice())
         {
             Main.removeGold(getPrice());
-            Main.addAutoInc(getAutoInc());
             Main.addInventory(getItemID());
             //string msg = "Bought " + getTitle() + " for " + getPrice() + " gold, adding " + getAutoInc() + " gold per second >>>";
             //Debug.Log("You have " + Main.getInventory(getItemID()) + " " + getTitle());
             //Debug.Log(msg);
-
+            if (this.id == 0)
+            {
+                Main.addClickInc(autoInc);
+            }
+            else Main.addAutoInc(getAutoInc());
         }
         else
         {
