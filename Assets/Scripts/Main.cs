@@ -47,11 +47,6 @@ public class Main : MonoBehaviour
         InvokeRepeating("saveGame", 60f, 60f);
         InvokeRepeating("rareSpawnHandler", 10f, 10f);
         InvokeRepeating("calcIncome", 1f, 1f);
-        Instantiate(ObjectManager.Get().rareSpawn, new Vector3(), Quaternion.identity, ObjectManager.Get().mainClick);
-        Instantiate(ObjectManager.Get().rareSpawn, new Vector3(), Quaternion.identity, ObjectManager.Get().mainClick);
-        Instantiate(ObjectManager.Get().rareSpawn, new Vector3(), Quaternion.identity, ObjectManager.Get().mainClick);
-
-
     }
 
     void Update()
@@ -77,7 +72,6 @@ public class Main : MonoBehaviour
 
     public Rock RockHandler()
     {
-        //base click, level, ignore bonus
         System.Random rnd = new System.Random();
         int level = (int)Player1.clickInc+1;
         int i = rnd.Next(4);
@@ -144,7 +138,7 @@ public class Main : MonoBehaviour
     public void manualClick()
     {
         FindObjectOfType<AudioManager>().Play("rockHit");
-        addGold(Player1.clickInc * bonusClickInc);
+        addGold(Player1.clickInc * bonusClickInc * getComboMultiplier());
         int g = newRock.hit((int)Player1.clickInc * getComboMultiplier() * (int)bonusClickInc);
         if (g > 0)
         {
@@ -157,7 +151,7 @@ public class Main : MonoBehaviour
 
         if (comboCounter < comboCounterLimit) { comboCounter++; }
 
-        goldClick = Player1.clickInc * bonusClickInc + g;
+        goldClick = Player1.clickInc * bonusClickInc * getComboMultiplier() + g;
         Instantiate(ObjectManager.Get().goldPopup, new Vector3(ObjectManager.Get().goldPopupContainer.transform.position.x, ObjectManager.Get().goldPopupContainer.transform.position.y), Quaternion.identity, ObjectManager.Get().goldPopupContainer.transform);
     }
 
