@@ -47,6 +47,11 @@ public class Main : MonoBehaviour
         InvokeRepeating("saveGame", 60f, 60f);
         InvokeRepeating("rareSpawnHandler", 10f, 10f);
         InvokeRepeating("calcIncome", 1f, 1f);
+        Instantiate(ObjectManager.Get().rareSpawn, new Vector3(), Quaternion.identity, ObjectManager.Get().mainClick);
+        Instantiate(ObjectManager.Get().rareSpawn, new Vector3(), Quaternion.identity, ObjectManager.Get().mainClick);
+        Instantiate(ObjectManager.Get().rareSpawn, new Vector3(), Quaternion.identity, ObjectManager.Get().mainClick);
+
+
     }
 
     void Update()
@@ -72,9 +77,9 @@ public class Main : MonoBehaviour
 
     public Rock RockHandler()
     {
-        //TODO generate rock based on gold etc
+        //base click, level, ignore bonus
         System.Random rnd = new System.Random();
-        int level = (int)getClickInc()+1;
+        int level = (int)Player1.clickInc+1;
         int i = rnd.Next(4);
         switch (i)
         {
