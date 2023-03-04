@@ -1707,11 +1707,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   sprites:
-  - {fileID: 21300000, guid: 8588e9ae8ae3d40a9811920e4d2e9c42, type: 3}
-  - {fileID: 21300000, guid: 8c7606a74307ebc4183e717547a2b1ab, type: 3}
-  - {fileID: 21300000, guid: ca3ead10a29f73f46ac90e0dfd01c565, type: 3}
-  - {fileID: 21300000, guid: 436330c11eb1f7f4aaad4f57c5276987, type: 3}
-  - {fileID: 21300000, guid: e32e343e889c38749b5a18c99529d418, type: 3}
+  - {fileID: 21300000, guid: 978013ab23108154d93924b99e6e35ac, type: 3}
+  - {fileID: 21300000, guid: 54d4764627393694c96bf8c5fc22ef0c, type: 3}
+  - {fileID: 21300000, guid: 64b822ebd3885d349a9e127153c6f898, type: 3}
+  - {fileID: 21300000, guid: ed11ce0fe0639eb4882adadb9ad9db32, type: 3}
+  - {fileID: 21300000, guid: ed11ce0fe0639eb4882adadb9ad9db32, type: 3}
 --- !u!114 &270686481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2170,6 +2170,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mine God
       objectReference: {fileID: 0}
+    - target: {fileID: 8402466856468329474, guid: 6d0f479d68b7fd94c9ad9d935679205b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8402466856468329501, guid: 6d0f479d68b7fd94c9ad9d935679205b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2240,7 +2244,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8402466856468329501, guid: 6d0f479d68b7fd94c9ad9d935679205b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -2043.2733
       objectReference: {fileID: 0}
     - target: {fileID: 8402466856468329501, guid: 6d0f479d68b7fd94c9ad9d935679205b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2253,6 +2257,10 @@ PrefabInstance:
     - target: {fileID: 8402466856468329501, guid: 6d0f479d68b7fd94c9ad9d935679205b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8402466856468329502, guid: 6d0f479d68b7fd94c9ad9d935679205b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8402466856468329503, guid: 6d0f479d68b7fd94c9ad9d935679205b, type: 3}
       propertyPath: m_PresetInfoIsWorld
@@ -4492,7 +4500,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9c6e52cc2be63448d9b1fca23ef50a4b, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8896,7 +8904,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 15
-  sprites: []
+  sprites:
+  - {fileID: 21300000, guid: 0b85210d222910d4ebcf961acb01d2c1, type: 3}
 --- !u!1001 &1974187917
 PrefabInstance:
   m_ObjectHideFlags: 0
