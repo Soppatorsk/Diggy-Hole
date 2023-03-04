@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Globalization;
+using Unity.Android.Types;
 
 public class Main : MonoBehaviour
 {
@@ -40,6 +41,7 @@ public class Main : MonoBehaviour
     {
         Application.targetFrameRate = 60;
         //resetGame(); //testing
+        loadGame();
         afkReward(); 
         newRock = RockHandler();
         InvokeRepeating("autoClick", .01f, .01f);
@@ -56,8 +58,7 @@ public class Main : MonoBehaviour
         ObjectManager.Get().autoIncDisplay.GetComponent<Text>().text = "Gold/s " + numberFormatter((int)goldDiff);
 
         ObjectManager.Get().comboDisplay.GetComponent<Text>().text = "x" + getComboMultiplier().ToString();
-        ObjectManager.Get().comboBar.transform.position = new Vector3(comboCounter * 5 - 100, 1200, 0);
-    }
+            }
 
     public void afkReward()
     {
@@ -103,6 +104,7 @@ public class Main : MonoBehaviour
     {
         if (comboCounter > 0)
         {
+            comboCounter--;
             comboCounter--;
             getComboMultiplier();
         }
@@ -212,12 +214,19 @@ public class Main : MonoBehaviour
     public int getComboMultiplier()
     {
         int x = 1;
+        Color y = new Color(193, 153, 60,1); //TODO custom color pls why
+        ObjectManager.Get().comboBar.GetComponent<Image>().color = Color.white;
         if (comboCounter >= combo2xCutoff)
         {
             x = 2;
+        Color o = new Color(193, 127, 60);
+            ObjectManager.Get().comboBar.GetComponent<Image>().color = Color.yellow;
             if (comboCounter >= combo3xCutoff)
             {
                 x = 3;
+        Color r = new Color(231, 113, 53);
+
+            ObjectManager.Get().comboBar.GetComponent<Image>().color = Color.red;
             }
         }
         comboMultiplier = x;

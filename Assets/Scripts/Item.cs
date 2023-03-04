@@ -60,6 +60,7 @@ public class Item : MonoBehaviour
     {
         return (long)(basePrice * Math.Pow(price_K, Main.getInventory(id)));
         //f(x)=ab^x
+        //where a = base price, b = k, x = rank
     }
 
     internal string getTitle()

@@ -7,14 +7,14 @@ public class Shop : MonoBehaviour
 {
     //Item initiators //TODO game balancing with prices and increments
     //is this really the way to do it lol
-    static Item item_1 = new Item(0, "Pickaxe",         1, 1, 1000); //
-    static Item item_2 = new Item(1, "Fan",             2, 2, 2);
-    static Item item_3 = new Item(2, "Mead",            3, 3, 3);
-    static Item item_4 = new Item(3, "Body Pillow",     4, 4, 4);
-    static Item item_5 = new Item(4, "Hat",             5, 5, 5);
-    static Item item_6 = new Item(5, "Canary",          10, 10, 10);
-    static Item item_7 = new Item(6, "Glasses",         25, 25, 25);
-    static Item item_8 = new Item(7, "Shoulder Pads",   100, 100, 100);
+    static Item item_1 = new Item(0, "Pickaxe",         1, 1, 10); //
+    static Item item_2 = new Item(1, "Fan",             200, 2, 2);
+    static Item item_3 = new Item(2, "Mead",            1000, 10, 3);
+    static Item item_4 = new Item(3, "Body Pillow",     10000, 25, 4);
+    static Item item_5 = new Item(4, "Hat",             50000, 50, 5);
+    static Item item_6 = new Item(5, "Canary",          100000, 100, 10);
+    static Item item_7 = new Item(6, "Glasses",         250000, 500, 25);
+    static Item item_8 = new Item(7, "Shoulder Pads",   5000000, 10000, 100);
     static Item item_9 = new Item(8, "Bank",            200, 200, 200);
     static Item item_10 = new Item(9, "Drill",          500, 500, 500);
     static Item item_11 = new Item(10, "Robot Arm",     1000, 1000, 1000);
