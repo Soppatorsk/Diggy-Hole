@@ -26,7 +26,7 @@ public class ShopItem : MonoBehaviour
     void Update()
     {
         priceDisplay.GetComponent<Text>().text = Main.numberFormatter(Shop.getPrice(id)) + "g"; //TODO only need to call per purchase. but shit dont work so lol
-        rankDisplay.GetComponent<Text>().text = "Rank: " + Main.getInventory(id);
+        rankDisplay.GetComponent<Text>().text = "LV: " + Main.getInventory(id);
         ButtonToggle();
     }
 
