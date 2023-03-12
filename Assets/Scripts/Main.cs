@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Globalization;
-using Unity.Android.Types;
 using JetBrains.Annotations;
 
 public class Main : MonoBehaviour
@@ -42,14 +41,14 @@ public class Main : MonoBehaviour
     void Start()
     {
         Application.targetFrameRate = 60;
-        //resetGame(); //testing
+        //resetGame(); //testing//
         loadGame();
         afkReward(); 
         ascended();
         newRock = RockHandler();
         InvokeRepeating("autoClick", .01f, .01f);
         InvokeRepeating("comboTick", .5f, .5f);
-        InvokeRepeating("saveGame", 60f, 60f);
+        InvokeRepeating("saveGame", 1f, 1f);
         InvokeRepeating("rareSpawnHandler", 10f, 10f);
         InvokeRepeating("calcIncome", 1f, 1f);
     }
@@ -195,15 +194,16 @@ public class Main : MonoBehaviour
     }
 
     //save/load
-    public static void saveGame()
+    public void saveGame()
     {
         setSaveDate(DateTime.Now);
         Save.SaveGame(Player1);
         Debug.Log("Saved the game");
     }
 
-    public static void loadGame()
+    public void loadGame()
     {
+        if (!System.IO.File.Exists(Application.persistentDataPath+"/MyDwarf.dat")) saveGame();
         Player1 = Save.LoadGame();
         Debug.Log("Loaded the game");
     }

@@ -14,7 +14,7 @@ public class Shop : MonoBehaviour
     static Item item_5 = new Item(4, "Hat",             50000, 50, 5);
     static Item item_6 = new Item(5, "Canary",          100000, 100, 10);
     static Item item_7 = new Item(6, "Glasses",         250000, 500, 25);
-    static Item item_8 = new Item(7, "Shoulders",       0, 0, 0); //TODO
+    static Item item_8 = new Item(7, "Shoulders",       500000, 750, 50); 
     static Item item_9 = new Item(8, "Bank",            500000, 1000, 200);
     static Item item_10 = new Item(9, "Drill",          1000000,2000, 500);
     static Item item_11 = new Item(10, "Robot Arm",     50000000, 5000, 1000);

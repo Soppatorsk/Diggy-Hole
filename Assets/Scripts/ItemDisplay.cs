@@ -17,10 +17,14 @@ public class ItemDisplay : MonoBehaviour
             gameObject.GetComponent<Image>().enabled = true;
 
         }
-        
+
+        if (id == 0) { 
+
         for (int i = 0; i<5; i++)
         {
             if (rank >= ranks[i]) { gameObject.GetComponent<Image>().sprite = sprites[i]; }
+        }
+
         }
 
     }
