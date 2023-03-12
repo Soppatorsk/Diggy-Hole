@@ -42,8 +42,9 @@ public class Main : MonoBehaviour
     void Start()
     {
         Application.targetFrameRate = 60;
-        //resetGame(); //testing
-        loadGame();
+        resetGame(); //testing
+        saveGame();
+        //loadGame();
         afkReward(); 
         ascended();
         newRock = RockHandler();
