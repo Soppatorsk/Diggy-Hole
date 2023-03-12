@@ -5,11 +5,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Globalization;
 using Unity.Android.Types;
+using JetBrains.Annotations;
 
 public class Main : MonoBehaviour
 {
     static Player Player1 = new Player();
 
+    
     static double goldClick; // getClickInc, one click + bonuses
 
     Rock newRock = new Rock(1, 0);
@@ -43,6 +45,7 @@ public class Main : MonoBehaviour
         //resetGame(); //testing
         loadGame();
         afkReward(); 
+        ascended();
         newRock = RockHandler();
         InvokeRepeating("autoClick", .01f, .01f);
         InvokeRepeating("comboTick", .5f, .5f);
@@ -55,7 +58,7 @@ public class Main : MonoBehaviour
     {
         //UI displays, make a UI Handler?
         ObjectManager.Get().goldDisplay.GetComponent<Text>().text = String.Format("{0:0000000000000000000}", getGold());
-        ObjectManager.Get().autoIncDisplay.GetComponent<Text>().text = "Gold/s " + numberFormatter((int)goldDiff);
+        ObjectManager.Get().autoIncDisplay.GetComponent<Text>().text = "GPS " + numberFormatter((int)goldDiff);
 
         ObjectManager.Get().comboDisplay.GetComponent<Text>().text = "x" + getComboMultiplier().ToString();
             }
@@ -332,5 +335,15 @@ public class Main : MonoBehaviour
         }
 
         return n.ToString();
+    }
+
+    public static void ascended()
+    {
+        if (getInventory(15) > 0)
+        {
+        ObjectManager.Get().Dwarf.GetComponent<Animator>().runtimeAnimatorController = null;
+        ObjectManager.Get().Dwarf.GetComponent<Image>().sprite = ObjectManager.Get().AscDwarfSprite;
+        ObjectManager.Get().Dwarf.GetComponent<Animator>().runtimeAnimatorController = ObjectManager.Get().AscDwarfAnim;
+        }
     }
 }

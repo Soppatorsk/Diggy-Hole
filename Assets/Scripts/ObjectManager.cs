@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class ObjectManager : MonoBehaviour
 {
@@ -12,7 +13,12 @@ public class ObjectManager : MonoBehaviour
             m_Instance = (ObjectManager)FindObjectOfType(typeof(ObjectManager));
         return m_Instance;
     }
+    public Sprite AscDwarfSprite;
+    public RuntimeAnimatorController AscDwarfAnim;
+
     // class 
+    public GameObject Dwarf;
+
     public Transform mainClick;
     public GameObject goldDisplay;
     public GameObject autoIncDisplay;

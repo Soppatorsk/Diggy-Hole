@@ -48,7 +48,12 @@ public class Item : MonoBehaviour
         {
             Debug.Log("Not enough gold");
         }
+
+        if (id == 15) Main.ascended();
+
     }
+
+    
 
     // GETTERS AND SETTERS
     private int getItemID()

@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class ShopHandler : MonoBehaviour
 {
-    //TODO THIS IS A FUCKING MESS PLEASE REDO LOL
 
     public GameObject shopTab1;
     public GameObject shopTab2;
