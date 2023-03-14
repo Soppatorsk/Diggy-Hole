@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "ce11171ba396162a04",
         "name": "com.SoppatorskAB.DiggerHole",
-        "processId": 20896,
+        "processId": 22377,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -30,6 +30,12 @@
             "deviceId": "ce11171ba396162a04",
             "name": "com.SoppatorskAB.DiggerHole",
             "processId": 20896,
+            "exited": false
+        },
+        {
+            "deviceId": "ce11171ba396162a04",
+            "name": "com.SoppatorskAB.DiggerHole",
+            "processId": 22377,
             "exited": false
         }
     ],

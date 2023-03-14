@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Globalization;
 using JetBrains.Annotations;
+using System.Text;
 
 public class Main : MonoBehaviour
 {
@@ -48,7 +49,7 @@ public class Main : MonoBehaviour
         newRock = RockHandler();
         InvokeRepeating("autoClick", .01f, .01f);
         InvokeRepeating("comboTick", .5f, .5f);
-        InvokeRepeating("saveGame", 1f, 1f);
+        InvokeRepeating("saveGame", 10f, 10f);
         InvokeRepeating("rareSpawnHandler", 10f, 10f);
         InvokeRepeating("calcIncome", 1f, 1f);
     }
@@ -303,7 +304,7 @@ public class Main : MonoBehaviour
         Player1.saveDate = current;
     }
 
-    public static string numberFormatter(double n)
+    public static string numberFormatterBAK(double n)
     {
         string output = "";
         if (n >= 10000)
@@ -335,6 +336,16 @@ public class Main : MonoBehaviour
         }
 
         return n.ToString();
+    }
+    public static string numberFormatter(double n)
+    {
+        string o = n.ToString();
+        if (n >= Math.Pow(10, 15)) o = (Math.Round(n / (Math.Pow(10, 15)))).ToString() + "P";
+        else if (n >= Math.Pow(10, 12)) o = (Math.Round(n / (Math.Pow(10, 12)))).ToString() + "T";
+        else if (n >= Math.Pow(10, 9)) o = (Math.Round(n / (Math.Pow(10, 9)))).ToString() + "G";
+        else if (n >= Math.Pow(10, 6)) o = (Math.Round(n / (Math.Pow(10, 6)))).ToString() + "M";
+        return o;
+
     }
 
     public static void ascended()
