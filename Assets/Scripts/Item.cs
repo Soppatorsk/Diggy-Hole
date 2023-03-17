@@ -8,6 +8,7 @@ public class Item : MonoBehaviour
 {
     int id;
     string title;
+    string popup;
  
     long basePrice;
     double price_K;
@@ -15,10 +16,11 @@ public class Item : MonoBehaviour
     long autoInc;
 
     // CONSTRUCTOR
-    public Item(int itemID, string itemTitle, long itemBasePrice, double itemPrice_k, long itemAutoInc)
+    public Item(int itemID, string itemTitle, string itemPopup, long itemBasePrice, double itemPrice_k, long itemAutoInc)
     {
         id = itemID;
         title = itemTitle;
+        popup = itemPopup;
         basePrice = itemBasePrice;
         price_K = itemPrice_k;
         autoInc = itemAutoInc;
@@ -28,7 +30,9 @@ public class Item : MonoBehaviour
     {
         if (Main.getInventory(id) == 0)
         {
+            Main.setLastBoughtUpgrade(popup);
             FindObjectOfType<AudioManager>().Play("wow");
+            Instantiate(ObjectManager.Get().upgradePopup, new Vector3(ObjectManager.Get().upgradePopupContainer.transform.position.x, ObjectManager.Get().upgradePopupContainer.transform.position.y), Quaternion.identity, ObjectManager.Get().upgradePopupContainer.transform);
         }
 
         if (Main.getGold() >= getPrice())

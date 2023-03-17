@@ -38,6 +38,7 @@ public class Main : MonoBehaviour
 
     public static int activeBonusA = 0;
     public static int activeBonusC = 0;
+    public static string lastBoughtUpgrade = "";
 
     void Start()
     {
@@ -292,6 +293,17 @@ public class Main : MonoBehaviour
     {
         Player1.inventory[i]++;
     }
+
+    public static string getLastBoughtUpgrade()
+    {
+        return lastBoughtUpgrade;
+    }
+    
+    public static void setLastBoughtUpgrade(string s)
+    {
+        lastBoughtUpgrade = s;
+    }
+
 
     //Save date
     public DateTime getSaveDate()

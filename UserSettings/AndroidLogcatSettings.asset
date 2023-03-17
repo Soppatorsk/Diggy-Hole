@@ -3,23 +3,11 @@
     "m_SelectedPackage": {
         "deviceId": "ce11171ba396162a04",
         "name": "com.SoppatorskAB.DiggerHole",
-        "processId": 24476,
+        "processId": 32540,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
-        {
-            "deviceId": "ce11171ba396162a04",
-            "name": "com.SoppatorskAB.DiggerHole",
-            "processId": 20896,
-            "exited": true
-        },
-        {
-            "deviceId": "ce11171ba396162a04",
-            "name": "com.SoppatorskAB.DiggerHole",
-            "processId": 22377,
-            "exited": true
-        },
         {
             "deviceId": "ce11171ba396162a04",
             "name": "com.SoppatorskAB.DiggerHole",
@@ -42,6 +30,24 @@
             "deviceId": "ce11171ba396162a04",
             "name": "com.SoppatorskAB.DiggerHole",
             "processId": 24476,
+            "exited": true
+        },
+        {
+            "deviceId": "ce11171ba396162a04",
+            "name": "com.SoppatorskAB.DiggerHole",
+            "processId": 31331,
+            "exited": true
+        },
+        {
+            "deviceId": "ce11171ba396162a04",
+            "name": "com.SoppatorskAB.DiggerHole",
+            "processId": 32102,
+            "exited": false
+        },
+        {
+            "deviceId": "ce11171ba396162a04",
+            "name": "com.SoppatorskAB.DiggerHole",
+            "processId": 32540,
             "exited": false
         }
     ],
