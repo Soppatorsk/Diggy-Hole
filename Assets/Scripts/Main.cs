@@ -48,7 +48,7 @@ public class Main : MonoBehaviour
         ascended();
         newRock = RockHandler();
         InvokeRepeating("autoClick", .01f, .01f);
-        InvokeRepeating("comboTick", .5f, .5f);
+        InvokeRepeating("comboTick", .2f, .2f);
         InvokeRepeating("saveGame", 10f, 10f);
         InvokeRepeating("rareSpawnHandler", 10f, 10f);
         InvokeRepeating("calcIncome", 1f, 1f);

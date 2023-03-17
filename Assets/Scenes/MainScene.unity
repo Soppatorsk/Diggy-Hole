@@ -1847,9 +1847,9 @@ MonoBehaviour:
   sprites:
   - {fileID: 21300000, guid: 978013ab23108154d93924b99e6e35ac, type: 3}
   - {fileID: 21300000, guid: 54d4764627393694c96bf8c5fc22ef0c, type: 3}
+  - {fileID: 21300000, guid: ed11ce0fe0639eb4882adadb9ad9db32, type: 3}
   - {fileID: 21300000, guid: 64b822ebd3885d349a9e127153c6f898, type: 3}
-  - {fileID: 21300000, guid: ed11ce0fe0639eb4882adadb9ad9db32, type: 3}
-  - {fileID: 21300000, guid: ed11ce0fe0639eb4882adadb9ad9db32, type: 3}
+  - {fileID: 21300000, guid: 64b822ebd3885d349a9e127153c6f898, type: 3}
 --- !u!114 &270686481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9433,7 +9433,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: theme
     clip: {fileID: 8300000, guid: 0fe7b68bf94a76441aa9378591932598, type: 3}
-    volume: 0.115
+    volume: 0.247
     pitch: 1
     loop: 1
     source: {fileID: 0}

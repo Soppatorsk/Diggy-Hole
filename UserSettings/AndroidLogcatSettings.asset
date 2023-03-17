@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "ce11171ba396162a04",
         "name": "com.SoppatorskAB.DiggerHole",
-        "processId": 22377,
+        "processId": 24476,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -11,31 +11,37 @@
         {
             "deviceId": "ce11171ba396162a04",
             "name": "com.SoppatorskAB.DiggerHole",
-            "processId": 14028,
-            "exited": false
-        },
-        {
-            "deviceId": "ce11171ba396162a04",
-            "name": "com.SoppatorskAB.DiggerHole",
-            "processId": 16375,
-            "exited": false
-        },
-        {
-            "deviceId": "ce11171ba396162a04",
-            "name": "com.SoppatorskAB.DiggerHole",
-            "processId": 20003,
-            "exited": false
-        },
-        {
-            "deviceId": "ce11171ba396162a04",
-            "name": "com.SoppatorskAB.DiggerHole",
             "processId": 20896,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "ce11171ba396162a04",
             "name": "com.SoppatorskAB.DiggerHole",
             "processId": 22377,
+            "exited": true
+        },
+        {
+            "deviceId": "ce11171ba396162a04",
+            "name": "com.SoppatorskAB.DiggerHole",
+            "processId": 12533,
+            "exited": true
+        },
+        {
+            "deviceId": "ce11171ba396162a04",
+            "name": "com.SoppatorskAB.DiggerHole",
+            "processId": 22801,
+            "exited": true
+        },
+        {
+            "deviceId": "ce11171ba396162a04",
+            "name": "com.sec.android.app.launcher",
+            "processId": 31369,
+            "exited": false
+        },
+        {
+            "deviceId": "ce11171ba396162a04",
+            "name": "com.SoppatorskAB.DiggerHole",
+            "processId": 24476,
             "exited": false
         }
     ],
