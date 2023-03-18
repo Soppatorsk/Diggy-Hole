@@ -27,9 +27,9 @@ public class Main : MonoBehaviour
 
     int comboMultiplier = 1; //TODO maybe combo in its own class
     int comboCounter = 0;
-    int comboCounterLimit = 50;
-    int combo2xCutoff = 10;
-    int combo3xCutoff = 40;
+    int comboCounterLimit = 30;
+    int combo2xCutoff = 5;
+    int combo3xCutoff = 20;
 
     int[] dwarfLevel = new int[] { 0, 1, 10, 25, 50, 100, 1000, 10000, };
 
@@ -49,7 +49,7 @@ public class Main : MonoBehaviour
         ascended();
         newRock = RockHandler();
         InvokeRepeating("autoClick", .01f, .01f);
-        InvokeRepeating("comboTick", .2f, .2f);
+        InvokeRepeating("comboTick", .3f, .3f);
         InvokeRepeating("saveGame", 10f, 10f);
         InvokeRepeating("rareSpawnHandler", 10f, 10f);
         InvokeRepeating("calcIncome", 1f, 1f);
@@ -315,40 +315,6 @@ public class Main : MonoBehaviour
     {
         Player1.saveDate = current;
     }
-
-    public static string numberFormatterBAK(double n)
-    {
-        string output = "";
-        if (n >= 10000)
-        {
-            output = n.ToString("G2", CultureInfo.InvariantCulture);
-            string eNum = output.Substring(Math.Max(0, output.Length - 4));
-            switch (eNum) {
-                case "E+04":
-                    return output.Replace(eNum, "A");
-                case "E+05":
-                    return output.Replace(eNum, "B");
-                case "E+06":
-                    return output.Replace(eNum, "C");
-                case "E+07":
-                    return output.Replace(eNum, "D");
-                case "E+08":
-                    return output.Replace(eNum, "E");
-                case "E+09":
-                    return output.Replace(eNum, "F");
-                case "E+10":
-                    return output.Replace(eNum, "G");
-                case "E+11":
-                    return output.Replace(eNum, "H");
-                case "E+12":
-                    return output.Replace(eNum, "I");
-                case "E+13":
-                    return output.Replace(eNum, "J");
-            }
-        }
-
-        return n.ToString();
-    }
     public static string numberFormatter(double n)
     {
         string o = n.ToString();
@@ -356,6 +322,7 @@ public class Main : MonoBehaviour
         else if (n >= Math.Pow(10, 12)) o = (Math.Round(n / (Math.Pow(10, 12)))).ToString() + "T";
         else if (n >= Math.Pow(10, 9)) o = (Math.Round(n / (Math.Pow(10, 9)))).ToString() + "G";
         else if (n >= Math.Pow(10, 6)) o = (Math.Round(n / (Math.Pow(10, 6)))).ToString() + "M";
+        else if (n >= Math.Pow(10, 3)) o = (Math.Round(n / (Math.Pow(10, 3)))).ToString() + "K";
         return o;
 
     }

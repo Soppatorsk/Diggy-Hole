@@ -2,8 +2,8 @@
     "m_SelectedDeviceId": "ce11171ba396162a04",
     "m_SelectedPackage": {
         "deviceId": "ce11171ba396162a04",
-        "name": "com.SoppatorskAB.DiggerHole",
-        "processId": 32540,
+        "name": "com.GoobyGibbers.DiggyHoleIdleTapMiner",
+        "processId": 15769,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -48,6 +48,12 @@
             "deviceId": "ce11171ba396162a04",
             "name": "com.SoppatorskAB.DiggerHole",
             "processId": 32540,
+            "exited": false
+        },
+        {
+            "deviceId": "ce11171ba396162a04",
+            "name": "com.GoobyGibbers.DiggyHoleIdleTapMiner",
+            "processId": 15769,
             "exited": false
         }
     ],

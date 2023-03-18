@@ -19,7 +19,7 @@ public class ShopItem : MonoBehaviour
     {
         titleDisplay.GetComponent<Text>().text = Shop.getTitle(id).ToString();
         priceDisplay.GetComponent<Text>().text = Main.numberFormatter(Shop.getPrice(id));
-        autoIncDisplay.GetComponent<Text>().text = "+" + Main.numberFormatter(Shop.getAutoInc(id)) + " gps";
+        autoIncDisplay.GetComponent<Text>().text = "+" + Main.numberFormatter(Shop.getAutoInc(id));
     }
 
     // Update is called once per frame
