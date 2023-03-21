@@ -334,6 +334,12 @@ public class Main : MonoBehaviour
         ObjectManager.Get().Dwarf.GetComponent<Animator>().runtimeAnimatorController = null;
         ObjectManager.Get().Dwarf.GetComponent<Image>().sprite = ObjectManager.Get().AscDwarfSprite;
         ObjectManager.Get().Dwarf.GetComponent<Animator>().runtimeAnimatorController = ObjectManager.Get().AscDwarfAnim;
+
+            ObjectManager.Get().hat.SetActive(false);
+            ObjectManager.Get().robotArm.SetActive(false);
+            ObjectManager.Get().glasses.SetActive(false);
+            ObjectManager.Get().shoulderpads.SetActive(false);
+
         }
     }
 }

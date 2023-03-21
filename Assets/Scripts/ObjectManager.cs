@@ -45,4 +45,13 @@ public class ObjectManager : MonoBehaviour
     public GameObject buffGoldReward;
 
     public Transform buffDisplay;
+
+    //Displayed items, hide on asencion
+    public GameObject glasses;
+    public GameObject hat;
+    public GameObject robotArm;
+    public GameObject shoulderpads;
+
+
 }
+
