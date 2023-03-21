@@ -2747,6 +2747,10 @@ MonoBehaviour:
   buffAutoInc: {fileID: 3658014819614996625, guid: 4d9ce02eaa2363b469111c5b96c4b4a1, type: 3}
   buffGoldReward: {fileID: 2917224538319112124, guid: 99ebc81140c04e743a8604db4eff3ab5, type: 3}
   buffDisplay: {fileID: 2036261826}
+  glasses: {fileID: 1658793157}
+  hat: {fileID: 2113780880}
+  robotArm: {fileID: 657291709}
+  shoulderpads: {fileID: 88090617}
 --- !u!4 &433511254
 Transform:
   m_ObjectHideFlags: 0
