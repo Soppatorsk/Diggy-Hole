@@ -2726,9 +2726,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b7a9fa28bd793f4c863abb92c2b2ca7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AscDwarfSprite: {fileID: 0}
-  AscDwarfAnim: {fileID: 0}
-  Dwarf: {fileID: 0}
+  AscDwarfSprite: {fileID: 21300000, guid: 0b85210d222910d4ebcf961acb01d2c1, type: 3}
+  AscDwarfAnim: {fileID: 9100000, guid: f58e923593bb8624b8b1da736388bfef, type: 2}
+  Dwarf: {fileID: 1040035368}
   mainClick: {fileID: 87278695}
   goldDisplay: {fileID: 1931217612}
   autoIncDisplay: {fileID: 69501811}
@@ -2736,8 +2736,8 @@ MonoBehaviour:
   goldPopupContainer: {fileID: 593701922}
   goldChunk: {fileID: 4782987828420981052, guid: 37565de4a8e8c6f4b94eca14fb42b15e, type: 3}
   goldChunkContainer: {fileID: 1898821526}
-  upgradePopup: {fileID: 0}
-  upgradePopupContainer: {fileID: 0}
+  upgradePopup: {fileID: 5868248181859965404, guid: 4e80777fc5c7af941a4b37ce278e8fc9, type: 3}
+  upgradePopupContainer: {fileID: 1535315037}
   shopWindow: {fileID: 1406850418}
   comboDisplay: {fileID: 814604136}
   comboBar: {fileID: 944007417}
@@ -2747,10 +2747,10 @@ MonoBehaviour:
   buffAutoInc: {fileID: 3658014819614996625, guid: 4d9ce02eaa2363b469111c5b96c4b4a1, type: 3}
   buffGoldReward: {fileID: 2917224538319112124, guid: 99ebc81140c04e743a8604db4eff3ab5, type: 3}
   buffDisplay: {fileID: 2036261826}
-  glasses: {fileID: 0}
-  hat: {fileID: 0}
-  robotArm: {fileID: 0}
-  shoulderpads: {fileID: 0}
+  glasses: {fileID: 1658793157}
+  hat: {fileID: 2113780880}
+  robotArm: {fileID: 657291709}
+  shoulderpads: {fileID: 88090617}
 --- !u!4 &433511254
 Transform:
   m_ObjectHideFlags: 0
@@ -4320,7 +4320,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1429, y: 76}
+  m_AnchoredPosition: {x: 1518, y: 159}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &895443837
@@ -9411,7 +9411,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 123.4084, y: -0}
-  m_SizeDelta: {x: -74.6467, y: 2149.23}
+  m_SizeDelta: {x: -82.6149, y: 2217.8901}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1940801485
 MonoBehaviour:

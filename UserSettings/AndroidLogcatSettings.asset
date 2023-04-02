@@ -3,35 +3,11 @@
     "m_SelectedPackage": {
         "deviceId": "ce11171ba396162a04",
         "name": "com.GoobyGibbers.DiggyHoleIdleTapMiner",
-        "processId": 15769,
+        "processId": 19902,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
-        {
-            "deviceId": "ce11171ba396162a04",
-            "name": "com.SoppatorskAB.DiggerHole",
-            "processId": 12533,
-            "exited": true
-        },
-        {
-            "deviceId": "ce11171ba396162a04",
-            "name": "com.SoppatorskAB.DiggerHole",
-            "processId": 22801,
-            "exited": true
-        },
-        {
-            "deviceId": "ce11171ba396162a04",
-            "name": "com.sec.android.app.launcher",
-            "processId": 31369,
-            "exited": false
-        },
-        {
-            "deviceId": "ce11171ba396162a04",
-            "name": "com.SoppatorskAB.DiggerHole",
-            "processId": 24476,
-            "exited": true
-        },
         {
             "deviceId": "ce11171ba396162a04",
             "name": "com.SoppatorskAB.DiggerHole",
@@ -42,18 +18,60 @@
             "deviceId": "ce11171ba396162a04",
             "name": "com.SoppatorskAB.DiggerHole",
             "processId": 32102,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "ce11171ba396162a04",
             "name": "com.SoppatorskAB.DiggerHole",
             "processId": 32540,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "ce11171ba396162a04",
             "name": "com.GoobyGibbers.DiggyHoleIdleTapMiner",
             "processId": 15769,
+            "exited": true
+        },
+        {
+            "deviceId": "ce11171ba396162a04",
+            "name": "com.sec.android.app.launcher",
+            "processId": 19755,
+            "exited": false
+        },
+        {
+            "deviceId": "ce11171ba396162a04",
+            "name": "com.GoobyGibbers.DiggyHoleIdleTapMiner",
+            "processId": 22970,
+            "exited": false
+        },
+        {
+            "deviceId": "ce11171ba396162a04",
+            "name": "com.GoobyGibbers.DiggyHoleIdleTapMiner",
+            "processId": 7534,
+            "exited": false
+        },
+        {
+            "deviceId": "ce11171ba396162a04",
+            "name": "com.GoobyGibbers.DiggyHoleIdleTapMiner",
+            "processId": 12347,
+            "exited": false
+        },
+        {
+            "deviceId": "ce11171ba396162a04",
+            "name": "com.GoobyGibbers.DiggyHoleIdleTapMiner",
+            "processId": 18760,
+            "exited": false
+        },
+        {
+            "deviceId": "ce11171ba396162a04",
+            "name": "com.GoobyGibbers.DiggyHoleIdleTapMiner",
+            "processId": 20312,
+            "exited": false
+        },
+        {
+            "deviceId": "ce11171ba396162a04",
+            "name": "com.GoobyGibbers.DiggyHoleIdleTapMiner",
+            "processId": 19902,
             "exited": false
         }
     ],
